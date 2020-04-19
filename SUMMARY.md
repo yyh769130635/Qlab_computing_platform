@@ -24,5 +24,7 @@
 
 ## 集群使用手册——预处理篇
 
+* [特征分析与降维](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/te-zheng-fen-xi-yu-jiang-wei.md)
+* [数据统计](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/shu-ju-tong-ji.md)
 * [Outline](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/outline.md)
 
