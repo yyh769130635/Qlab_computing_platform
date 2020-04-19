@@ -22,3 +22,7 @@
 
 * [Untitled](wen-ti-ji-lu/untitled.md)
 
+## 集群使用手册——预处理篇
+
+* [Outline](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/outline.md)
+
