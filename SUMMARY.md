@@ -9,21 +9,22 @@
 
 ## 集群使用手册——预处理篇
 
+* [Outline](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/outline.md)
 * [特征分析与降维](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/te-zheng-fen-xi-yu-jiang-wei.md)
 * [数据清洗](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/shu-ju-qing-xi.md)
 * [数据统计](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/shu-ju-tong-ji.md)
-* [Outline](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/outline.md)
 
 ## 计算资源使用规范 <a id="shi-yan-shi-ji-suan-zi-yuan-shi-yong-gui-fan"></a>
 
 * [Outline](shi-yan-shi-ji-suan-zi-yuan-shi-yong-gui-fan/outline.md)
 
-## 搭建记录
+## 常用大数据工具搭建记录 <a id="da-jian-ji-lu"></a>
 
 * [Outline](da-jian-ji-lu/outline.md)
-* [Kubernetes](da-jian-ji-lu/kubernetes.md)
+* [Hadoop](da-jian-ji-lu/hadoop.md)
 * [Spark](da-jian-ji-lu/spark.md)
-* [Hadoop](da-jian-ji-lu/untitled.md)
+* [Kubernetes](da-jian-ji-lu/kubernetes.md)
+* [Hive\(数据仓库\)](da-jian-ji-lu/hive-shu-ju-cang-ku.md)
 
 ## 问题记录
 
