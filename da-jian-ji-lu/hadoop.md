@@ -1,4 +1,4 @@
-# Untitled
+# Spark\(分布式计算引擎\)
 
 | Hadoop搭建指南 |
 | :--- |
@@ -79,7 +79,7 @@ Hadoop由HDFS、MapReduce、HBase、Hive和ZooKeeper等成员组成，其中最�
 
 ### Hadoop集群的部署结构图
 
-![https://img-blog.csdn.net/20160714162552253](../.gitbook/assets/1.png)
+![https://img-blog.csdn.net/20160714162552253](../.gitbook/assets/1%20%281%29.png)
 
 ## 具体搭建步骤
 
@@ -143,7 +143,7 @@ export CLASSPATH=.:$JAVA\_HOME/lib/dt.jar:$JAVA\_HOME/lib/dt.jar:$JAVA\_HOME/lib
 * 使用命令生效：source ~/.bashrc
 * 校验：java –version
 
-![https://images2017.cnblogs.com/blog/1217276/201711/1217276-20171123154204118-167501079.png](../.gitbook/assets/2.png)
+![https://images2017.cnblogs.com/blog/1217276/201711/1217276-20171123154204118-167501079.png](../.gitbook/assets/2%20%281%29.png)
 
 #### JDK安装及配置
 
@@ -157,7 +157,7 @@ export PATH=PATH:PATH:SCALA\_HOME/bin
 * 使用命令生效：source ~/.bashrc
 * 校验：scala –version
 
-![https://images2017.cnblogs.com/blog/1217276/201711/1217276-20171123154204118-167501079.png](../.gitbook/assets/3.png)
+![https://images2017.cnblogs.com/blog/1217276/201711/1217276-20171123154204118-167501079.png](../.gitbook/assets/3%20%282%29.png)
 
 #### ssh免密登陆
 
@@ -450,7 +450,7 @@ master
 
 此时在master上面运行的进程有：NameNode、SecondaryNameNode和DataNode
 
-![https://images2018.cnblogs.com/blog/1217276/201711/1217276-20171127105746784-700046181.png](../.gitbook/assets/4.png)
+![https://images2018.cnblogs.com/blog/1217276/201711/1217276-20171127105746784-700046181.png](../.gitbook/assets/4%20%282%29.png)
 
 #### 启动YARN
 

@@ -23,9 +23,10 @@
 ## 常用大数据工具搭建记录 <a id="da-jian-ji-lu"></a>
 
 * [Outline](da-jian-ji-lu/outline.md)
-* [Untitled](da-jian-ji-lu/hadoop.md)
-* [Spark\(分布式计算引擎\)](da-jian-ji-lu/spark.md)
+* [Spark\(分布式计算引擎\)](da-jian-ji-lu/hadoop.md)
+* [Hadoop\(分布式存储与计算\)](da-jian-ji-lu/spark.md)
 * [Kubernetes](da-jian-ji-lu/kubernetes.md)
+* [Untitled](da-jian-ji-lu/untitled.md)
 * [Hive\(数据仓库\)](da-jian-ji-lu/hive-shu-ju-cang-ku.md)
 * [Zeppelin可视化数据分析工具](da-jian-ji-lu/zeppelin.md)
 
