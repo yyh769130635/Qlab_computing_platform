@@ -72,7 +72,7 @@ print\("Lines with a: %i, lines with b: %i" % \(numAs, numBs\)\)
 
 运行成功：
 
-![C:\Users\Administrator\AppData\Local\Microsoft\Windows\Temporary Internet Files\Content.Word\Image.png](../.gitbook/assets/0%20%282%29.png)
+![](../.gitbook/assets/0%20%282%29.png)
 
 ## 二、Maven&Intellij IDEA打jar包以及创建scala project
 
