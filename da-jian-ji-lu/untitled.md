@@ -1,31 +1,26 @@
+---
+description: 参与人员：唐元博、杨煜涵、陈靖仪     时间：2019年12月10日
+---
+
 # OpenPai搭建指南
 
-| OpenPAI搭建指南 |
-| :--- |
-| 东南大学数据科学实验室 |
-| 时间：2019年12月10日 |
-| 参与人员：唐元博、杨煜涵、陈靖仪 |
-|  |
+1 项目简介 
 
-1 项目简介 1
+2 具体搭建步骤 
 
-2 具体搭建步骤 2
+2.1 准备部署环境 
 
-索引 2
+2.2 修改配置文件 
 
-2.1 准备部署环境 2
+2.3 启动Kubenete集群服务 
 
-2.2 修改配置文件 3
+2.4 更新 Kubernetes 的集群配置 
 
-2.3 启动Kubenete集群服务 4
+2.5 启动所有 OpenPAI 服务 
 
-2.4 更新 Kubernetes 的集群配置 5
+3 计算平台验证 
 
-2.5 启动所有 OpenPAI 服务 5
-
-3 计算平台验证 6
-
-3.1 Hadoop服务： 6
+3.1 Hadoop服务： 
 
 ## **项目简介**
 
@@ -237,4 +232,3 @@ OpenPAI服务包含以下几大组件：
 * Kubenete基础概念与使用方法：[https://kubernetes.io/docs/tutorials/kubernetes-basics/](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
 * Hadoop官方网站：[https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html)
 
-1. 

@@ -23,14 +23,14 @@
 ## 常用大数据工具搭建记录 <a id="da-jian-ji-lu"></a>
 
 * [Outline](da-jian-ji-lu/outline.md)
-* [Spark\(分布式计算引擎\)](da-jian-ji-lu/hadoop.md)
-* [Hadoop\(分布式存储与计算\)](da-jian-ji-lu/spark.md)
+* [Hadoop搭建指南](da-jian-ji-lu/hadoop.md)
+* [Spark-with-hive搭建指南](da-jian-ji-lu/spark.md)
 * [Kubernetes](da-jian-ji-lu/kubernetes.md)
 * [OpenPai搭建指南](da-jian-ji-lu/untitled.md)
 * [Hive\(数据仓库\)](da-jian-ji-lu/hive-shu-ju-cang-ku.md)
 * [集群使用手册（上）](da-jian-ji-lu/ji-qun-shi-yong-shou-ce-shang.md)
 * [集群使用手册（下）](da-jian-ji-lu/ji-qun-shi-yong-shou-ce-xia.md)
-* [Untitled](da-jian-ji-lu/untitled-1.md)
+* [Evernote Export](da-jian-ji-lu/untitled-1.md)
 * [Zeppelin可视化数据分析工具](da-jian-ji-lu/zeppelin.md)
 
 ## 问题记录
