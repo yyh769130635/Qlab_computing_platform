@@ -79,7 +79,7 @@ Hadoop由HDFS、MapReduce、HBase、Hive和ZooKeeper等成员组成，其中最�
 
 ### Hadoop集群的部署结构图
 
-![https://img-blog.csdn.net/20160714162552253](../.gitbook/assets/1%20%281%29.png)
+![https://img-blog.csdn.net/20160714162552253](../.gitbook/assets/1%20%282%29.png)
 
 ## 具体搭建步骤
 
@@ -143,7 +143,7 @@ export CLASSPATH=.:$JAVA\_HOME/lib/dt.jar:$JAVA\_HOME/lib/dt.jar:$JAVA\_HOME/lib
 * 使用命令生效：source ~/.bashrc
 * 校验：java –version
 
-![https://images2017.cnblogs.com/blog/1217276/201711/1217276-20171123154204118-167501079.png](../.gitbook/assets/2%20%281%29.png)
+![https://images2017.cnblogs.com/blog/1217276/201711/1217276-20171123154204118-167501079.png](../.gitbook/assets/2%20%282%29.png)
 
 #### JDK安装及配置
 
@@ -450,7 +450,7 @@ master
 
 此时在master上面运行的进程有：NameNode、SecondaryNameNode和DataNode
 
-![https://images2018.cnblogs.com/blog/1217276/201711/1217276-20171127105746784-700046181.png](../.gitbook/assets/4%20%282%29.png)
+![https://images2018.cnblogs.com/blog/1217276/201711/1217276-20171127105746784-700046181.png](../.gitbook/assets/4%20%284%29.png)
 
 #### 启动YARN
 
@@ -459,7 +459,7 @@ master
 
 此时在master上运行的进程有：NameNode、SecondaryNameNode、DataNode、NodeManager和ResourceManager
 
-![](../.gitbook/assets/5.png)
+![](../.gitbook/assets/5%20%281%29.png)
 
 以上，Hadoop搭建成功。
 
@@ -496,7 +496,7 @@ Apache Hadoop YARN （Yet Another Resource Negotiator，另一种资源协调者
 
 通过http://&lt;master-ip&gt;:8088端口我们可以访问提交任务的运行结果，资源利用率等，店家查看logs，再点击stdout：
 
-![](../.gitbook/assets/9.png)
+![](../.gitbook/assets/9%20%281%29.png)
 
 图 -4 HDFS 上传下载文件
 

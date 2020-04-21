@@ -139,11 +139,11 @@ export SPARK\_WORKER\_MEMORY=100G
 * Start-slaves.sh
 * Slave1节点上的进程有：
 
-![https://images2018.cnblogs.com/blog/1217276/201711/1217276-20171127165433362-181835928.png](../.gitbook/assets/1%20%282%29.png)
+![https://images2018.cnblogs.com/blog/1217276/201711/1217276-20171127165433362-181835928.png](../.gitbook/assets/1%20%283%29.png)
 
 * 其余节点上的进程有：
 
-![https://images2018.cnblogs.com/blog/1217276/201711/1217276-20171127165551362-2023683965.png](../.gitbook/assets/2%20%282%29.png)
+![https://images2018.cnblogs.com/blog/1217276/201711/1217276-20171127165551362-2023683965.png](../.gitbook/assets/2%20%283%29.png)
 
 ## Hive安装
 
@@ -298,7 +298,7 @@ hive&gt;select count\(\*\) from test;
 
 通过http://&lt;master-ip&gt;:18080端口我们可以访问jobhistory的webUI界面，查看已经运行的一些任务以及结果。
 
-![](../.gitbook/assets/4.png)
+![](../.gitbook/assets/4%20%281%29.png)
 
 ## 参考资料
 

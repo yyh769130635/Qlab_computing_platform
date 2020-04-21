@@ -175,7 +175,7 @@ python paictl.py cluster k8s-bootup -p ~/pai-config
 
 至此kubenete的服务都已经成功启动，为了验证我们步骤的正确性，我们从web界面中访问http://&lt;master-ip&gt;:8080和http://&lt;master-ip&gt;:9090来分别观察集群的信息：
 
-![](../.gitbook/assets/1.png)
+![](../.gitbook/assets/1%20%281%29.png)
 
 图 2 kubenete的webUI
 
@@ -211,7 +211,7 @@ OpenPAI服务包含以下几大组件：
 
 通过http://&lt;master-ip&gt;:50070端口我们可以访问分布式文件系统的webUI界面，为了保证集群的数据安全性，我们设置了用户权限和登录账户密码系统。
 
-![](../.gitbook/assets/2.png)
+![](../.gitbook/assets/2%20%281%29.png)
 
 图 3-1 HDFS用户登录界面
 
@@ -223,7 +223,7 @@ OpenPAI服务包含以下几大组件：
 
 这表明HDFS系统已经搭建成功。Apache Hadoop YARN （Yet Another Resource Negotiator，另一种资源协调者）是一种新的 Hadoop 资源管理器，它是一个通用资源管理系统，可为上层应用提供统一的资源管理和调度，它的引入为集群在利用率、资源统一管理和数据共享等方面带来了巨大好处。而在yarn资源调度界面中我们可以看到如下信息：
 
-![](../.gitbook/assets/4%20%281%29.png)
+![](../.gitbook/assets/4%20%283%29.png)
 
 图 3-3 yarn资源调度界面
 
