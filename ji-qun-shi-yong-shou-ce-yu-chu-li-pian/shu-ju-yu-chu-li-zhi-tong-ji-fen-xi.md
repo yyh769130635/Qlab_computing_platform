@@ -4,19 +4,37 @@ description: 作者：杨煜涵         时间：2020-4-19
 
 # 数据预处理之PySpark
 
-1.打印列索引
+将csv文件读入dataframe
+
+```text
+df=spark.read.csv("hdfs://10.129.2.155:50090/123/data/train.csv",header=True)
+```
+
+**1.打印列索引** 😇 ****
+
+如果datafame有列索引，则会打印其索引标签及数据格式
 
 ```text
 df.printSchema()
 ```
 
-2.对某一列做数据统计
+![](../.gitbook/assets/image.png)
+
+
+
+**2.对某一列做数据统计**
+
+选择dataframe的一列，输出其统计信息，包括最大值、最小值等
 
 ```text
 df.describe("Survived").show()
 ```
 
-3.统计缺失率
+![](../.gitbook/assets/image%20%287%29.png)
+
+**3.统计缺失率**
+
+对整个dataframe做列的数据缺失统计
 
 ```text
 import pyspark.sql.functions as fn 
@@ -24,23 +42,31 @@ df_miss=df.agg(*[ (1-fn.count(c)/(fn.count('*'))).alias(c ) for c in df.columns 
 df_miss.show()
 ```
 
-4.统一某一列缺失的个数
+![](../.gitbook/assets/image%20%2816%29.png)
+
+**4.统一某一列缺失的个数**
+
+选择数据的某一列，统计缺失个数
 
 ```text
 df_most=df.select("Age").groupBy("Age").count().orderBy("count",ascending=False)
 df_most.show()
 ```
 
-5.求众数
+**5.求众数**
+
+spark中有许多基本的函数，可以根据数学表达式结合排序求得想要的结果
 
 ```text
 df_most=df.select("Age").groupBy("Age").count().orderBy("count",ascending=False) 
 df_most.show()
 ```
 
-6.求最大最小值
+![](../.gitbook/assets/image%20%283%29.png)
 
-方法比较多：
+**6.求最大最小值**
+
+求解最大最小值的方法有许多：可以直接利用自带的describe函数（官方不推荐），也可以构造临时表利用sql语句计算，还可以将dataframe转换成RDD，然后利用数组求解，需要注意的是数据的格式问题。
 
 ```text
 # # Method 1: Use describe()
@@ -60,25 +86,33 @@ df_most.show()
 max(df.select("Age").collect())
 ```
 
-7.删选信息
+**7.删选信息**
+
+碰到某些条件需要删选，可以借助filter函数
 
 ```text
 df.filter(df["Age"]>24).show()
 ```
 
-8.groupBy+count
+**8.groupBy+count**
+
+想要做一些个性化的统计，利用groupBy和count，这个和pandas库用法一样
 
 ```text
 df.groupBy("Sex").count().show()
 ```
 
-9.sort and orderBy
+**9.sort and orderBy**
+
+sort and orderBy用法和pandas，其中spark默认的是升序排列
 
 ```text
 df.sort(df["Fare"], ascengding=True).show()
 ```
 
-10.null值的填充
+**10.null值的填充**
+
+对于缺失值的填充，可以借助fillna函数或者 na.fill\(\)函数，可以对整张表，也可以选取一列，填入某个特定值，值的选取可以结合前面的最大值，最小值，均值，众数来选取。
 
 ```text
 df1=df.fillna({"Age": 20})
