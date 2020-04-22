@@ -20,7 +20,7 @@ df=spark.read.csv("hdfs://10.129.2.155:50090/123/data/train.csv",header=True)
 
 如果datafame有列索引，则会打印其索引标签及数据格式
 
-```text
+```python
 df.printSchema()
 ```
 
