@@ -28,7 +28,7 @@ df.printSchema()
 
 ### **2.对某一列做数据统计**
 
-选择dataframe的一列，输出其统计信息，包括最大值、最小值等，需要注意的是，mean stddev会受null值的影响。
+选择dataframe的一列，输出其统计信息，包括最大值、最小值等，需要注意的是，mean 、stddev会受null值的影响。
 
 ```text
 df.describe("Survived").show()
