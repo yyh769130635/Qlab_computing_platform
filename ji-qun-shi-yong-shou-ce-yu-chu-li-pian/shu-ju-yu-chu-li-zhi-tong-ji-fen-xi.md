@@ -24,7 +24,7 @@ df.printSchema()
 
 #### **2.对某一列做数据统计**
 
-选择dataframe的一列，输出其统计信息，包括最大值、最小值等
+选择dataframe的一列，输出其统计信息，包括最大值、最小值等，需要注意的是，mean stddev会受null值的影响。
 
 ```text
 df.describe("Survived").show()
@@ -34,11 +34,13 @@ df.describe("Survived").show()
 
 #### **3.统计缺失率**
 
-对整个dataframe做列的数据缺失统计
+对整个dataframe的列做数据缺失率统计，如果缺失率过高可以删除整列。
 
 ```text
 import pyspark.sql.functions as fn 
-df_miss=df.agg(*[ (1-fn.count(c)/(fn.count('*'))).alias(c ) for c in df.columns ]) 
+# 因为spark没有现成的函数，需要自己利用function函数计算
+df_miss=df.agg(*[ (1-fn.count(c)/(fn.count('*'))).alias(c ) 
+                for c in df.columns ]) 
 df_miss.show()
 ```
 
@@ -46,18 +48,24 @@ df_miss.show()
 
 #### **4.统一某一列缺失的个数**
 
-选择数据的某一列，统计缺失个数
+选择数据的某一列，统计缺失个数，想要统计整张表格，则模仿上3，写一个for循环
 
 ```text
-df_most=df.select("Age").groupBy("Age").count().orderBy("count",ascending=False)
-df_most.show()
+#选择一列利用filter函数统计
+df.select("Age").filter("Age is null").count()
+# 统计整张表格数据缺失个数
+import pyspark.sql.functions as fn
+df2=df.agg(*[(fn.count("*")-fn.count(c)).alias(c)
+            for c in df.columns])
+df2.show()
 ```
 
 #### **5.求众数**
 
-spark中有许多基本的函数，可以根据数学表达式结合排序求得想要的结果
+spark中有许多基本的函数，可以根据数学表达式结合排序求得想要的结果，需要注意的是只能做一列统计，暂时没有这个dataframe的API
 
 ```text
+# spark只能对某一列做统计，选中一列
 df_most=df.select("Age").groupBy("Age").count().orderBy("count",ascending=False) 
 df_most.show()
 ```
@@ -88,7 +96,7 @@ max(df.select("Age").collect())
 
 #### **7.删选信息**
 
-碰到某些条件需要删选，可以借助filter函数
+碰到某些条件需要删选，可以借助filter函数，类似于sql的between 和 where
 
 ```text
 df.filter(df["Age"]>24).show()
@@ -121,7 +129,7 @@ df1.show()
 
 #### 11.更改列数据类型
 
-dataframe数据读进来默认未string，可以利用spark.sql可以做如下类型转换：
+dataframe数据读进来默认为string，可以利用spark.sql可以做如下类型转换：
 
 ```text
 # 更改列数据类型，首先需要对null值填充，不然会报错
