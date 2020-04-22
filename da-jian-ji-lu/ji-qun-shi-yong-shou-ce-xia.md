@@ -56,11 +56,11 @@ description: 作者：杨煜涵
 
 #### 提交参数：
 
-–deploy-mode: 允许决定是否在本地（使用client）启动Spark驱动成簇的参数，或者在集群内（使用cluster选项）的其中一台工作机器上启动。默人是client。
+`–deploy-mode`: 允许决定是否在本地（使用client）启动Spark驱动成簇的参数，或者在集群内（使用cluster选项）的其中一台工作机器上启动。默人是client。
 
-–name : 应用程序名称。注意，创建SparkSession时，如果是以编程方式指定应用程序名称，那么来自命令行的参数会被重写。
+`–name` : 应用程序名称。注意，创建SparkSession时，如果是以编程方式指定应用程序名称，那么来自命令行的参数会被重写。
 
-–exectuor-memory：参数指定每个执行器为应用程序分配多少内存。默认值是1G。
+`–exectuor-memory`：参数指定每个执行器为应用程序分配多少内存。默认值是1G。
 
 spark standalone两种提交模式，**Standalone-client** 和**Standalone-master** 模式
 
@@ -90,7 +90,7 @@ spark-submit
 
 **--class org.apache.spark.examples.SparkPi main函数**
 
-100 main函数需要的参数
+`100 main`函数需要的参数
 
 ### 1.2 client模式（默认）
 
@@ -114,13 +114,13 @@ client方式提交任务，在客户端提交多个application，客户端会为
 
 client模式适用于测试调试程序。Driver进程是在客户端启动的，这里的客户端就是指提交应用程序的当前节点。在Driver端可以看到task执行的情况。生产环境下不能使用client模式，是因为：假设要提交100个application到集群运行，Driver每次都会在client端启动，那么就会导致客户端100次网卡流量暴增的问题。（因为要监控task的运行情况，会占用很多端口，如上图的结果图）客户端网卡通信，都被task监控信息占用。
 
-![https://img-blog.csdn.net/20180719213432100?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d5cXdpbGxpYW0=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70](../.gitbook/assets/0.jpeg)
+![](../.gitbook/assets/0.jpeg)
 
 #### 结果查看
 
-hadoop@master:~/local/sparkwithhive/examples/jars$ spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 spark-examples\_2.11-2.1.0.jar 1000 2&gt;&1 \| grep "Pi is roughly"
+`hadoop@master:~/local/sparkwithhive/examples/jars$ spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 spark-examples_2.11-2.1.0.jar 1000 2>&1 | grep "Pi is roughly"`
 
-结果可在10.129.2.155:18081口查看
+结果可在[10.129.2.155:18081](http://10.129.2.155:18081/)口查看
 
 ![](../.gitbook/assets/1%20%284%29.png)
 
@@ -128,7 +128,7 @@ hadoop@master:~/local/sparkwithhive/examples/jars$ spark-submit --class org.apac
 
 #### 命令
 
-./spark-submit --master spark://master:7077 --deploy-mode cluster --class ... jar ...
+`./spark-submit --master spark://master:7077 --deploy-mode cluster --class ... jar ...`
 
 #### 过程
 
@@ -146,7 +146,7 @@ cluster方式提交任务，Driver在集群中的随机一台Worker节点上启�
 
 cluster方式适用于真实生产环境，在客户端看不到task执行情况和执行结果，要去WEBUI中去查看。
 
-![https://img-blog.csdn.net/20180719213404874?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d5cXdpbGxpYW0=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70](../.gitbook/assets/2.jpeg)
+![](../.gitbook/assets/2.jpeg)
 
 ## Spark on YARN
 
@@ -186,19 +186,19 @@ yarn-cluster模式下，driver运行在AM中，它负责向YARN申请资源，�
 
 [https://blog.csdn.net/chengwenfa159/article/details/80206743](https://blog.csdn.net/chengwenfa159/article/details/80206743)
 
-\#列出HDFS下的文件
+**\#列出HDFS下的文件**
 
 `$ hdfs dfs -ls /`
 
-\#创建目录文件如‘sparkapp’
+**\#创建目录文件如‘sparkapp’**
 
 `$hdfs dfs -mkdir /sparkapp`
 
-\#上传打包好的xx.jar到/sparkapp目录下
+**\#上传打包好的xx.jar到/sparkapp目录下**
 
 `$hdfs dfs -put /loaclpath/xx.jar /sparkapp`
 
-\#查看已上传的文件
+**\#查看已上传的文件**
 
 `$ hdfs dfs -ls /sparkapp`
 
@@ -232,11 +232,11 @@ ApplicationMaster的作用：
 
 i\).申请资源 ii\).启动Executor iii\).任务调度
 
-![https://img-blog.csdn.net/20180804105147718?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d5cXdpbGxpYW0=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70](../.gitbook/assets/3.jpeg)
+![](../.gitbook/assets/3.jpeg)
 
 #### 结果查看
 
-结果在10.129.2.155.18081查看
+结果在[10.129.2.155.18081](http://10.129.2.155:18081/)查看
 
 ![](../.gitbook/assets/4.png)
 
@@ -276,7 +276,7 @@ Driver功能：
 
 i\).发送task ii\).监控task，回收结果 iii\).申请资源
 
-![https://img-blog.csdn.net/20180804105129285?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d5cXdpbGxpYW0=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70](../.gitbook/assets/5.jpeg)
+![](../.gitbook/assets/5.jpeg)
 
 ## Spark on Mesos
 

@@ -44,8 +44,11 @@ PYSPARK_DRIVER_PYTHON=~/anaconda3/bin/jupyter-notebook pyspark
 ```
 
 ```text
-master$ PYSPARK_DRIVER_PYTHON=~/anaconda3/bin/jupyter-notebook PYSPARK_DRIVER_PYTHON_OPTS=" --ip=0.0.0.0 --port=7777" pyspark --packages com.databricks:spark-csv_2.11:1.1.0 --master spark://spark_master_hostname:7077 --executor-memory 6400M --driver-memory 6400M
-
+master$ PYSPARK_DRIVER_PYTHON=~/anaconda3/bin/jupyter-notebook PYSPARK_DRIVER_PYTHON_OPTS=" 
+--ip=0.0.0.0 --port=7777" pyspark 
+--packages com.databricks:spark-csv_2.11:1.1.0 
+--master spark://spark_master_hostname:7077 
+--executor-memory 6400M --driver-memory 6400M
 ```
 
 ## 使用方式3：直接在环境变量中添加（不推荐）
@@ -65,7 +68,7 @@ export PYSPARK_DRIVER_PYTHON_OPTS="notebook"`
  **step4: 启动**  
  运行pyspark直接启动
 
-```text
+```bash
 hadoop@slave1:~$ pyspark
 ```
 
@@ -77,14 +80,15 @@ pyspark --master spark://slave:7077 --executor-memory xxxM --total-executor-core
 
 ### 缺点：
 
-因为export了`PYSPARK_DRIVER_PYTHON` 与`PYSPARK_DRIVER_PYTHON_OPTS` 两个环境变量后，非shell的pyspark 生怕认可应用也将使用jupyter-notebook，这必然引起混乱，**所以推荐的还是在pyspark的启动命令中当时指定**  
+因为export了`PYSPARK_DRIVER_PYTHON` 与`PYSPARK_DRIVER_PYTHON_OPTS` 两个环境变量后，非shell的pyspark 生怕认可应用也将使用jupyter-notebook，这必然引起混乱，**所以推荐方法一和方法二**  
  实测，添加到环境变量中后，spark只支持ipynb的文件，因此不用。
 
 [参考链接](https://blog.csdn.net/NJZhuJinhua/article/details/79441217)
 
-## 如下是启动命令
+## 如下是常用的启动命令
 
 ```text
-spark-submit --master spark://slave1:7077 --total-executor-cores 144 --executor-memory 70g --driver-memory 30g
+spark-submit --master spark://slave1:7077 --total-executor-cores 144 
+--executor-memory 70g --driver-memory 30g
 ```
 
