@@ -78,5 +78,7 @@ pyspark --master spark://slave:7077 --executor-memory xxxM --total-executor-core
 
 [参考链接](https://blog.csdn.net/NJZhuJinhua/article/details/79441217)
 
+```text
 spark-submit --master spark://slave1:7077 --total-executor-cores 144 --executor-memory 70g --driver-memory 30g
+```
 
