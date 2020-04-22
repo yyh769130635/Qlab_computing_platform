@@ -58,7 +58,7 @@ Spark的安装建立在hadoop的基础上，之前的一些基础配置就不再
 ### 2.2修改配置文件
 
 * `Vim ~/.bashrc`
-* 定义SPARK\_HOME并把spark路径加入到PATH参数中
+* 定义`SPARK_HOME`并把spark路径加入到PATH参数中
 
 ```text
 export SPARK_HOME=/opt/app/spark-2.2.0-bin-hadoop2.7
@@ -69,14 +69,14 @@ export PATH=PATH:PATH:SPARK_HOME/bin:$SPARK_HOME/sbin
 
 进入spark目录下
 
-* 打开配置文件conf/slaves，默认情况下没有slaves，需要使用cp命令复制slaves.template
+* 打开配置文件`conf/slaves`，默认情况下没有slaves，需要使用cp命令复制`slaves.template`
 
 ```text
 # cp slaves.template slaves
 # vim slaves
 ```
 
-* 加入slaves配置节点slave1-4,master
+* 加入slaves配置节点s`lave1-4,master`
 
 ```text
 Slave1
@@ -109,17 +109,17 @@ export SPARK_WORKER_MEMORY=100G
 * `Start-slaves.sh`
 * Slave1节点上的进程有：
 
-![https://images2018.cnblogs.com/blog/1217276/201711/1217276-20171127165433362-181835928.png](../.gitbook/assets/1%20%283%29.png)
+![](../.gitbook/assets/1%20%283%29.png)
 
 * 其余节点上的进程有：
 
-![https://images2018.cnblogs.com/blog/1217276/201711/1217276-20171127165551362-2023683965.png](../.gitbook/assets/2%20%283%29.png)
+![](../.gitbook/assets/2%20%283%29.png)
 
 ## 3.Hive安装
 
 ### 3.1配置环境变量
 
-为了方便使用，我们把hive命令加入到环境变量中去，编辑~/.bashrc文件`vim ~/.bashrc`，在最前面一行添加:
+为了方便使用，我们把hive命令加入到环境变量中去，编辑`~/.bashrc`文件`vim ~/.bashrc`，在最前面一行添加:
 
 ```text
 export HIVE_HOME=/usr/local/hive
@@ -128,7 +128,7 @@ export PATH=$PATH:$HIVE_HOME/bin
 
 ### 3.2配置conf/hive-site.xml
 
-将hive-default.xml.template重命名为hive-default.xml；新建一个文件touch hive-site.xml，并在hive-site.xml中粘贴如下配置信息：
+将`hive-default.xml.template`重命名为`hive-default.xml`；新建一个文件t`ouch hive-site.xml`，并在`hive-site.xml`中粘贴如下配置信息：
 
 ```text
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -217,7 +217,7 @@ hive #启动hive
 
 为了让Spark能够访问Hive，必须为Spark添加Hive支持。Spark官方提供的预编译版本，通常是不包含Hive支持的，需要采用源码编译，编译得到一个包含Hive支持的Spark版本。如果你当前电脑上的Spark版本不包含Hive支持，请根据下面教程编译一个包含Hive支持的Spark版本。
 
-为了让Spark能够访问Hive，需要把Hive的配置文件hive-site.xml拷贝到Spark的conf目录下，请在Shell命令提示符状态下操作：
+为了让Spark能够访问Hive，需要把Hive的配置文件`hive-site.xml`拷贝到Spark的conf目录下，请在Shell命令提示符状态下操作：
 
 ```text
 cd /usr/local/sparkwithhive/conf
@@ -226,14 +226,14 @@ cp /usr/local/hive/conf/hive-site.xml
 
 ### 5.1Spark on hive
 
-* 启动进入spark-shell，命令如下：
+* 启动进入`spark-shell`，命令如下：
 
 ```text
 cd /usr/local/sparkwithhive
 ./bin/spark-shell
 ```
 
-* 启动了spark-shell，进入了“scala&gt;”命令提示符状态，请输入下面语句：
+* 启动了`spark-shell`，进入了“scala&gt;”命令提示符状态，请输入下面语句：
 
 ```text
 scala> import org.apache.spark.sql.hive.HiveContext

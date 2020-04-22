@@ -53,7 +53,7 @@ print("Lines with a: %i, lines with b: %i" % (numAs, numBs))
 
 例如：`var rdd = sc.textFile("/Filename.txt")`等价于`var rdd = sc.textFile(“hdfs:///Filename.txt”)`是在HDFS中查找文件，请将文件用put上传到HDFS或确保该文件在hdfs://中。
 
-若想用本地文件创建rdd，则应在目录前加入“file://” 例如：var rdd = sc.textFile\(“file:///Filename.txt”\)
+若想用本地文件创建rdd，则应在目录前加入“file://” 例如：`var rdd = sc.textFile(“file:///Filename.txt”)`
 
 运行成功：
 
@@ -142,7 +142,7 @@ object test {
 
 运行，效果如图：
 
-![https://images2018.cnblogs.com/blog/1167688/201808/1167688-20180821191234038-1838631866.png](../.gitbook/assets/11.png)
+![](../.gitbook/assets/11.png)
 
 ## 三、Intellij IDEA打包scala代码在spark中运行：
 
