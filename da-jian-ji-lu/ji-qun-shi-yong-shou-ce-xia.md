@@ -4,69 +4,37 @@ description: 作者：杨煜涵
 
 # 集群使用手册（下）
 
-Spark集群三种部署模式与提交任务
+## 目录
 
-目录
+一、 Spark Standalone Mode 
 
-Spark集群三种部署模式与提交任务 1
+1.1 简介： 
 
-部署方式简介 2
+1.2 client模式（默认） 
 
-一、 Spark Standalone Mode 3
+1.3 cluster模式\(不显示运行结果\) 
 
-1.1 简介： 3
+二、 Spark on YARN 
 
-提交参数： 3
+2.1 简介 
 
-命令 3
+2.2 yarn-cluster和yarn-client模式的区别 
 
-e.g: 3
+2.3 yarn-cluster模式 
 
-1.2 client模式（默认） 3
+2.4 yarn-client模式（默认） 
 
-命令 3
+三、 Spark on Mesos 
 
-过程 3
+四、 Spark on Kubernetes 
 
-结果查看 4
-
-1.3 cluster模式\(不显示运行结果\) 5
-
-命令 5
-
-过程 5
-
-二、 Spark on YARN 6
-
-2.1 简介 6
-
-2.2 yarn-cluster和yarn-client模式的区别 6
-
-2.3 yarn-cluster模式 6
-
-命令： 6
-
-过程 7
-
-结果查看 7
-
-2.4 yarn-client模式（默认） 8
-
-命令： 8
-
-过程： 8
-
-三、 Spark on Mesos 9
-
-四、 Spark on Kubernetes 9
-
-### 部署方式简介
+## 部署方式简介
 
 目前Apache Spark支持三种分布式部署方式，分别是：
 
-* Standalone
-* spark on mesos
-* spark on YARN，
+* `Standalone`
+* `spark on mesos`
+* `spark on YARN`
 
 具体介绍如下网址：
 
@@ -94,37 +62,33 @@ e.g: 3
 
 –exectuor-memory：参数指定每个执行器为应用程序分配多少内存。默认值是1G。
 
-spark standalone两种提交模式，Standalone-client 和Standalone-master 模式
+spark standalone两种提交模式，**Standalone-client** 和**Standalone-master** 模式
 
-区别：默认是client模式
+区别：**默认是client模式**
 
 #### 命令
 
+```text
 spark-submit
-
 --master spark://master:7077
-
 --deploy-mode client
-
 --executor-memory 5000
-
 --total-executor-cores 12
-
 xxxxxxxxx.py
+```
 
 #### e.g:
 
+```text
 spark-submit
-
 \ --master spark://master:7077
-
 \ --class org.apache.spark.examples.SparkPi
-
 \ spark-examples.jar 100
+```
 
 解释：
 
---class org.apache.spark.examples.SparkPi main函数
+**--class org.apache.spark.examples.SparkPi main函数**
 
 100 main函数需要的参数
 
@@ -132,9 +96,9 @@ spark-submit
 
 #### 命令
 
-./spark-submit --master spark://master:7077 --class ... jar ... 参数
+`./spark-submit --master spark://master:7077 --class ... jar ... 参数`
 
-./spark-submit --master spark://master:7077 --deploy-mode client --class .. jar ..
+`./spark-submit --master spark://master:7077 --deploy-mode client --class .. jar ..`
 
 #### 过程
 
@@ -210,9 +174,9 @@ yarn-cluster模式下，driver运行在AM中，它负责向YARN申请资源，�
 
 #### 命令：
 
-./spark-submit --master yarn-cluster --class ...jar .... ..
+`./spark-submit --master yarn-cluster --class ...jar .... ..`
 
-./spark-submit --master yarn --deploy-mode cluster --class ..jar ... ..
+`./spark-submit --master yarn --deploy-mode cluster --class ..jar ... ..`
 
 注：因为在cluster模式下，driver在集群中的任意一节点执行，所以要把jar文件上传到HDFS上。
 
@@ -224,11 +188,11 @@ yarn-cluster模式下，driver运行在AM中，它负责向YARN申请资源，�
 
 \#列出HDFS下的文件
 
-$ hdfs dfs -ls /
+`$ hdfs dfs -ls /`
 
 \#创建目录文件如‘sparkapp’
 
-$hdfs dfs -mkdir /sparkapp
+`$hdfs dfs -mkdir /sparkapp`
 
 \#上传打包好的xx.jar到/sparkapp目录下
 

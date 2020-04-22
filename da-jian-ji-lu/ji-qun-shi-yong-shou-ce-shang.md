@@ -12,17 +12,11 @@ description: 作者：杨煜涵
 
 [1. Intellij IDEA+maven搭建scala环境: ](ji-qun-shi-yong-shou-ce-shang.md#1-intellij-ideamaven-da-jian-scala-huan-jing)
 
-1.1 安装JDK 
-
 [2. 安装intellij-idea ](ji-qun-shi-yong-shou-ce-shang.md#2-an-zhuang-intellijidea)
 
 [3. scala插件安装 ](ji-qun-shi-yong-shou-ce-shang.md#2-an-zhuang-intellijidea)
 
 [4. 设置全局JDK和Scala SDK](ji-qun-shi-yong-shou-ce-shang.md#4-she-zhi-quan-ju-jdk-he-scala-sdk) 
-
-4.1 设置全局JDK，configure-&gt;project defaults-&gt;project structure -&gt;SDKs 
-
-4.2设置Scala SDK，configure-&gt;project defaults-&gt;project structure -&gt;global libraries -&gt; + -&gt;Scala SDK 5
 
 [5、创建maven工程 ](ji-qun-shi-yong-shou-ce-shang.md#5-chuang-jian-maven-gong-cheng)
 
@@ -40,29 +34,24 @@ description: 作者：杨煜涵
 
 ## 一、直接将.py文件提交到spark集群执行
 
-hadoop@master:~/local/sparkwithhive/bin$ spark-submit --master spark://master:7077 /home/hadoop/pycode/pytest.py
+`hadoop@master:~/local/sparkwithhive/bin$ spark-submit --master spark://master:7077 /home/hadoop/pycode/pytest.py`
 
 例：Pytest.py
 
+```text
 from pyspark import SparkContext,SparkConf
-
-conf=SparkConf\(\).setAppName\("sparkDemo"\).setMaster\("master"\)
-
-sc=SparkContext\(conf=conf\)
-
+conf=SparkConf().setAppName("sparkDemo").setMaster("master")
+sc=SparkContext(conf=conf)
 logFile='file:///home/hadoop/local/sparkwithhive/README.md'
-
-logData=sc.textFile\(logFile\).cache\(\)
-
-numAs = logData.filter\(lambda s: 'a' in s\).count\(\)
-
-numBs = logData.filter\(lambda s: 'b' in s\).count\(\)
-
-print\("Lines with a: %i, lines with b: %i" % \(numAs, numBs\)\)
+logData=sc.textFile(logFile).cache()
+numAs = logData.filter(lambda s: 'a' in s).count()
+numBs = logData.filter(lambda s: 'b' in s).count()
+print("Lines with a: %i, lines with b: %i" % (numAs, numBs))
+```
 
 注：textFile\(\)默让是在HDFS中查找文件，所以只给一个文件目录则会在HDFS中查找文件，请先确保你所加载的文件在HDFS中。
 
-例如：var rdd = sc.textFile\("/Filename.txt"\)等价于var rdd = sc.textFile\(“hdfs:///Filename.txt”\)是在HDFS中查找文件，请将文件用put上传到HDFS或确保该文件在hdfs://中。
+例如：`var rdd = sc.textFile("/Filename.txt")`等价于`var rdd = sc.textFile(“hdfs:///Filename.txt”)`是在HDFS中查找文件，请将文件用put上传到HDFS或确保该文件在hdfs://中。
 
 若想用本地文件创建rdd，则应在目录前加入“file://” 例如：var rdd = sc.textFile\(“file:///Filename.txt”\)
 
@@ -120,9 +109,7 @@ b. 然后加入到环境变量
 
 ### 5、创建maven工程
 
-a. 下载地址：
-
-http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.zip
+a. 下载地址：[http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.zip](http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.zip)
 
 b. 加入到环境变量
 
@@ -146,15 +133,12 @@ c. 创建一个新的maven工程，选择JDK，然后next，GroupID和ArtifactId
 
 在test.scala中添加如下代码：
 
+```text
 object test {
-
- def main\(args: Array\[String\]\): Unit ={
-
- println\("Hello World!"\)
-
- }
-
-}
+ def main(args: Array[String]): Unit ={
+ println("Hello World!")
+ }}
+```
 
 运行，效果如图：
 
@@ -168,47 +152,48 @@ object test {
 
 创建好Maven项目之后（记得添加Scala框架到该项目），修改pom.xml文件，添加如下内容：
 
-&lt;name&gt;secondscala&lt;/name&gt;  
-&lt;url&gt;http://maven.apache.org&lt;/url&gt;  
-&lt;properties&gt;  
- &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;  
-&lt;/properties&gt;
-
-&lt;dependencies&gt;  
- &lt;dependency&gt;  
- &lt;groupId&gt;junit&lt;/groupId&gt;  
- &lt;artifactId&gt;junit&lt;/artifactId&gt;  
- &lt;version&gt;3.8.1&lt;/version&gt;  
- &lt;scope&gt;test&lt;/scope&gt;  
- &lt;/dependency&gt;  
- &lt;!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core --&gt;  
- &lt;dependency&gt;  
- &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;  
- &lt;artifactId&gt;spark-core\_2.10&lt;/artifactId&gt;  
- &lt;version&gt;2.1.0&lt;/version&gt;  
- &lt;/dependency&gt;
-
-&lt;/dependencies&gt;
+```text
+<name>secondscala</name>
+<url>http://maven.apache.org</url>
+<properties>
+ <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
+<dependencies>
+ <dependency>
+ <groupId>junit</groupId>
+ <artifactId>junit</artifactId>
+ <version>3.8.1</version>
+ <scope>test</scope>
+ </dependency>
+ <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
+ <dependency>
+ <groupId>org.apache.spark</groupId>
+ <artifactId>spark-core_2.10</artifactId>
+ <version>2.1.0</version>
+ </dependency>
+</dependencies>
+```
 
 其中保存之后，需要点击右下角的import change，这样相当于是下载jar包
 
 ### 2、编写一个Scala程序，统计字母的行数
 
-import org.apache.spark.SparkContext  
-import org.apache.spark.SparkContext.\_  
+```text
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
-
-object SimpleApp {  
- def main\(args:Array\[String\]\): Unit ={  
- val logFile="file:///home/hadoop/local/sparkwithhive/README.md"  
- val conf = new SparkConf\(\).setAppName\("Simple Application"\)  
- val sc = new SparkContext\(conf\)  
- val logData = sc.textFile\(logFile,2\).cache\(\)  
- val numAs = logData.filter\(line =&gt;line.contains\("a"\)\).count\(\)  
- val numBs = logData.filter\(line =&gt;line.contains\("b"\)\).count\(\)  
- _println_\("Lines with a:%s,Lines with b:%s".format\(numAs,numBs\)\)  
- }  
+object SimpleApp {
+ def main(args:Array[String]): Unit ={
+ val logFile="file:///home/hadoop/local/sparkwithhive/README.md"
+ val conf = new SparkConf().setAppName("Simple Application")
+ val sc = new SparkContext(conf)
+ val logData = sc.textFile(logFile,2).cache()
+ val numAs = logData.filter(line =>line.contains("a")).count()
+ val numBs = logData.filter(line =>line.contains("b")).count()
+ println("Lines with a:%s,Lines with b:%s".format(numAs,numBs))
+ }
 }
+```
 
 ### 3、打包代码
 
@@ -228,14 +213,14 @@ a. 把jar包放到能访问spark集群的机器上面
 
 b. 运行
 
-hadoop@master:~/local/sparkwithhive/bin$ spark-submit --master [spark://master:7077](spark://master:7077/) /home/hadoop/jar/wordcount2.jar 2&gt;&1\|grep "Lines with"  
+`hadoop@master:~/local/sparkwithhive/bin$ spark-submit --master` [`spark://master:7077`](spark://master:7077/) `/home/hadoop/jar/wordcount2.jar 2>&1|grep "Lines with"`  
 
 
 c. 结果
 
-![C:\Users\cjy\AppData\Local\Temp\Image.png](../.gitbook/assets/14.png)
+![](../.gitbook/assets/14.png)
 
 ## 四、Spark集群的三种部署方式
 
-详见另一参考文档
+[详见另一参考文档](ji-qun-shi-yong-shou-ce-xia.md)
 
