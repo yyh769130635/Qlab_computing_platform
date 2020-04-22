@@ -135,7 +135,7 @@ for col in cols:
 import pyspark.sql.functions as fn
 #仅保留落在区间范围内的特征值，而离散值则变为null
 no_outliers = df_outliers.select(*['id']+[(
-fn.when(df_outliers[c].between(int(bounds[c][0]), int(bounds[c][1])),df_outliers[c] )
+fn.when(df_outliers[c].between(bounds[c][0], bounds[c][1]),df_outliers[c] )
 ).alias(c) for c in cols
 ])
 no_outliers.show()
