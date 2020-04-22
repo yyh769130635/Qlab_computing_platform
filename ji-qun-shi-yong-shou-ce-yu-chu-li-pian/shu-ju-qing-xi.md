@@ -60,8 +60,6 @@ df.withColumn('new_id',fn.monotonically_increasing_id()).show()
 
 数据中经常出现某些特征值缺失的现象，对缺失值的处理可以通过直接移除数据方法实现，但是移除可能会对数据集的可能性造成严重的影响。检查数据每个特征的缺失率，如果一个特征的大部分值都是缺失的，则基本此特征无用，可以直接移除。
 
-另外处理缺失值的方法是对其做填充。如果数据时离散型布尔值，可以通过添加第三个类型——Missing，将其转换为另一个分类变量；如果数据是数值类型，可以填充任何的平均数、中间数或者其他预定义的值。
-
 ```python
 #创建以下示例数据：
 df_miss = spark.createDataFrame([
@@ -86,9 +84,10 @@ df_miss_no_income = df_miss.select([c for c in df_miss.columns if c!='income'])
 df_miss_no_income.dropna(thresh=3).show()
 ```
 
-均值填充
+另外处理缺失值的方法是对其做填充。如果数据时离散型布尔值，可以通过添加第三个类型——Missing，将其转换为另一个分类变量；如果数据是数值类型，可以填充任何的平均数、中间数或者其他预定义的值。
 
 ```python
+#均值填充
 means = df_miss_no_income.agg(*[fn.mean(c).alias(c)
  for c in df_miss_no_income.columns if c!= 'gender']
 ).toPandas().to_dict('records')[0]
@@ -99,8 +98,6 @@ df_miss_no_income.fillna(means).show()
 ## 离群值
 
 异常数据是指那些与其他数据的分布明显偏离的数据。在最普遍的形式中，如果所有值大致在Q1-1.5IQR和Q3+1.5IQR范围内，IQR指四分位范围，可以认为没有离群值；IQR定义为上分为和下分位之差，也就是分别为第75个百分位（Q3）和第25个百分位（Q1）。
-
- 
 
 ```python
 #创建以下示例数据：
@@ -132,11 +129,11 @@ for col in cols:
  ]
 ```
 
-替换离群值：
+替换离群值
 
 ```python
 import pyspark.sql.functions as fn
-#仅保留落在区间中的特征值，而离散值变为null
+#仅保留落在区间范围内的特征值，而离散值则变为null
 no_outliers = df_outliers.select(*['id']+[(
 fn.when(df_outliers[c].between(int(bounds[c][0]), int(bounds[c][1])),df_outliers[c] )
 ).alias(c) for c in cols
