@@ -1,25 +1,23 @@
+---
+description: 作者：杨煜涵    时间：4月22日
+---
+
 # Outline
 
-## Getting Super Powers
+大数据有许多工具，适用不同场景，实验室服务器上已经搭建可用的有以下一些：
 
-Becoming a super hero is a fairly straight forward process:
+* Hadoop
+* Spark
+* hive && mysql
+* zeppelin
+* jupyter notebook
+* OpenPai
+* docker
+* Kubernetes
 
-```
-$ give me super-powers
-```
+![](../.gitbook/assets/image%20%2820%29.png)
 
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
+同学们可以根据自己的需求，使用不同的工具。
 
-Once you're strong enough, save the world:
-
-{% code title="hello.sh" %}
-```bash
-# Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
-{% endcode %}
-
-
+整个文件夹记录了常用大数据工具搭建的过程，以及其常见的使用方式，欢迎补充！ 😇 
 
