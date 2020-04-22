@@ -54,7 +54,7 @@ df_miss.show()
 
 选择数据的某一列，统计缺失个数，想要统计整张表格，则模仿上3，写一个for循环
 
-```text
+```python
 #选择一列利用filter函数统计
 df.select("Age").filter("Age is null").count()
 # 统计整张表格数据缺失个数
