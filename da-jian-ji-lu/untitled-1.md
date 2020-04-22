@@ -57,11 +57,11 @@ vim ~/.bashrc
 ```
 
 **step2: 添加如下信息**  
- export PYSPARK\_DRIVER\_PYTHON=jupyter  
- export PYSPARK\_PYTHON=/home/hadoop/anaconda3/bin/python3  
- export PYSPARK\_DRIVER\_PYTHON\_OPTS="notebook"  
+ `export PYSPARK_DRIVER_PYTHON=jupyter  
+export PYSPARK_PYTHON=/home/hadoop/anaconda3/bin/python3  
+export PYSPARK_DRIVER_PYTHON_OPTS="notebook"`  
  **step3:**  
- source ~/.bashrc  
+ `source ~/.bashrc`  
  **step4: 启动**  
  运行pyspark直接启动
 
@@ -77,7 +77,7 @@ pyspark --master spark://slave:7077 --executor-memory xxxM --total-executor-core
 
 ### 缺点：
 
-因为export了PYSPARK\_DRIVER\_PYTHON 与PYSPARK\_DRIVER\_PYTHON\_OPTS 两个环境变量后，非shell的pyspark 生怕认可应用也将使用jupyter-notebook，这必然引起混乱，**所以推荐的还是在pyspark的启动命令中当时指定**  
+因为export了`PYSPARK_DRIVER_PYTHON` 与`PYSPARK_DRIVER_PYTHON_OPTS` 两个环境变量后，非shell的pyspark 生怕认可应用也将使用jupyter-notebook，这必然引起混乱，**所以推荐的还是在pyspark的启动命令中当时指定**  
  实测，添加到环境变量中后，spark只支持ipynb的文件，因此不用。
 
 [参考链接](https://blog.csdn.net/NJZhuJinhua/article/details/79441217)

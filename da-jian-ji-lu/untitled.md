@@ -38,7 +38,7 @@ OpenPAI的架构如下图所示，用户通过Web Portal调用REST Server的API�
 
 [第一步: 准备部署环境](https://github.com/microsoft/pai/blob/master/docs/zh_CN/pai-management/doc/distributed-deploy.md%22%20/l%20%22c-step-1)
 
-[第二步: 准备配置](https://github.com/microsoft/pai/blob/master/docs/zh_CN/pai-management/doc/distributed-deploy.md%22%20/l%20%22c-step-2)文件
+[第二步: 准备配置文件](untitled.md#xiu-gai-pei-zhi-wen-jian)
 
 [第三步: 部署Kubernetes](https://github.com/microsoft/pai/blob/master/docs/zh_CN/pai-management/doc/distributed-deploy.md%22%20/l%20%22c-step-3)
 

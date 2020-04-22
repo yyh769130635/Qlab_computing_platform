@@ -1,5 +1,5 @@
 ---
-description: 参与人员：唐元博、杨煜涵、陈靖仪          时间：2019年12月15日
+description: 作者：杨煜涵          时间：2019年12月15日
 ---
 
 # Spark-with-hive搭建指南
@@ -49,7 +49,7 @@ Spark的安装建立在hadoop的基础上，之前的一些基础配置就不再
 
 * 下载，上传服务器安装包；
 
-• Spark配置集群，配置 ~/.bashrc、conf/slaves以及conf/spark-env.sh
+• Spark配置集群，配置 `~/.bashrc、conf/slaves`以及`conf/spark-env.sh`
 
 • 直接启动验证，通过jps和宿主机浏览器验证
 
@@ -57,7 +57,7 @@ Spark的安装建立在hadoop的基础上，之前的一些基础配置就不再
 
 ### 2.2修改配置文件
 
-* Vim ~/.bashrc
+* `Vim ~/.bashrc`
 * 定义SPARK\_HOME并把spark路径加入到PATH参数中
 
 ```text
@@ -85,7 +85,7 @@ Slave2
 
 ### 2.4配置conf/spark-env.sh
 
-* 打开配置文件conf/slaves，默认情况下没有slaves，需要使用cp命令复制spark-env.sh.template spark-env.sh
+* 打开配置文件conf/slaves，默认情况下没有slaves，需要使用cp命令复制`spark-env.sh.template spark-env.sh`
 
 ```text
 # cp spark-env.sh.template spark-env.sh
@@ -105,8 +105,8 @@ export SPARK_WORKER_MEMORY=100G
 
 ### 2.5启动spark
 
-* Start-master.sh
-* Start-slaves.sh
+* `Start-master.sh`
+* `Start-slaves.sh`
 * Slave1节点上的进程有：
 
 ![https://images2018.cnblogs.com/blog/1217276/201711/1217276-20171127165433362-181835928.png](../.gitbook/assets/1%20%283%29.png)
@@ -119,7 +119,7 @@ export SPARK_WORKER_MEMORY=100G
 
 ### 3.1配置环境变量
 
-为了方便使用，我们把hive命令加入到环境变量中去，编辑~/.bashrc文件vim ~/.bashrc，在最前面一行添加:
+为了方便使用，我们把hive命令加入到环境变量中去，编辑~/.bashrc文件`vim ~/.bashrc`，在最前面一行添加:
 
 ```text
 export HIVE_HOME=/usr/local/hive

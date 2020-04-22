@@ -1,66 +1,36 @@
 ---
-description: 参与人员：唐元博、杨煜涵、陈靖仪        时间：2019年12月15日
+description: 作者：杨煜涵        时间：2019年12月15日
 ---
 
 # Hadoop搭建指南
 
 ## 目录
 
-1 Hadoop基本介绍 2
+\*\*\*\*[**1 Hadoop基本介绍** ](hadoop.md#hadoop-ji-ben-jie-shao)\*\*\*\*
 
-1.1 Hadoop简介 2
+[1.1 Hadoop简介 ](hadoop.md#hadoop-jian-jie)
 
-1.2 Hadoop生态系统 2
+[1.2 Hadoop生态系统](hadoop.md#hadoop-sheng-tai-xi-tong) 
 
-1.3 Hadoop集群的部署结构图 2
+[1.3 Hadoop集群的部署结构图](hadoop.md#hadoop-ji-qun-de-bu-shu-jie-gou-tu) 
 
-2 具体搭建步骤 3
+\*\*\*\*[**2 具体搭建步骤** ](hadoop.md#ju-ti-da-jian-bu-zhou)\*\*\*\*
 
-2.1 预备工作 3
+[2.1 预备工作](hadoop.md#yu-bei-gong-zuo) 
 
-2.1.1 修改主机名 3
+[2.2 配置运行环境 ](hadoop.md#pei-zhi-yun-hang-huan-jing)
 
-2.1.2 设置HOST映射文件 3
+[2.3 Hadoop安装配置](hadoop.md#hadoop-an-zhuang-pei-zhi) 
 
-2.2 配置运行环境 3
+[2.4 启动hadoop服务](hadoop.md#qi-dong-hadoop-fu-wu) 
 
-2.2.3 JDK安装及配置 4
+\*\*\*\*[**3 计算平台验证** ](hadoop.md#ji-suan-ping-tai-yan-zheng)\*\*\*\*
 
-2.2.4 JDK安装及配置 4
+[3.1 HDFS服务](hadoop.md#hdfs-fu-wu) 
 
-2.2.5 ssh免密登陆 4
+[3.2 YARN服务](hadoop.md#yarn-fu-wu) 
 
-2.3 Hadoop安装配置 4
-
-2.3.6 配置hadoop-env.sh 5
-
-2.3.7 配置yarn-env.sh 5
-
-2.3.8 配置core-site.xml 5
-
-2.3.9 配置hdfs-site.xml 6
-
-2.3.10 配置mapred-site.xml 6
-
-2.3.11 配置yarn-site.xml 7
-
-2.3.12 配置slaves文件 8
-
-2.4 启动hadoop服务 8
-
-2.4.13 格式化Namenode\(只需要一次\) 8
-
-2.4.14 启动HDFS 8
-
-2.4.15 启动YARN 9
-
-3 计算平台验证 10
-
-3.1 HDFS服务： 10
-
-3.2 YARN服务 11
-
-4 参考资料 12
+\*\*\*\*[**4 参考资料** ](hadoop.md#can-kao-zi-liao)\*\*\*\*
 
 ## Hadoop基本介绍
 
@@ -94,15 +64,13 @@ Hadoop由HDFS、MapReduce、HBase、Hive和ZooKeeper等成员组成，其中最�
 
 使用版本
 
-JDK-1.8.0\_221
-
+```text
+JDK-1.8.0_221
 Scala-2.11.8
-
 hadoop-2.9.0
-
 hive-2.3.6
-
 spark-2.1.0
+```
 
 ### 预备工作
 
@@ -114,17 +82,15 @@ spark-2.1.0
 
 使用root身份编辑/etc/hosts映射文件，设置IP地址与机器名的映射，设置信息如下：
 
-vim /etc/hosts
+`vim /etc/hosts`
 
+```text
 10.129.2.156 master
-
 10.129.2.155 slave1
-
 10.129.2.157 slave2
-
 10.129.2.157 slave3
-
 10.129.2.157 slave4
+```
 
 ### 配置运行环境
 
@@ -133,11 +99,11 @@ vim /etc/hosts
 * 下载linux使用的java包，解压到路径下，设置读写权限，解压，配置：
 * sudo vim ~/.bashrc文件，添加如下内容：
 
-export JAVA\_HOME=/usr/lib/java/jdk1.8.0\_221
-
-export PATH=PATH:PATH:JAVA\_HOME/bin
-
-export CLASSPATH=.:$JAVA\_HOME/lib/dt.jar:$JAVA\_HOME/lib/dt.jar:$JAVA\_HOME/lib/tools.jar
+```text
+export JAVA_HOME=/usr/lib/java/jdk1.8.0_221
+export PATH=PATH:PATH:JAVA_HOME/bin
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+```
 
 * 使用命令生效：source ~/.bashrc
 * 校验：java –version
@@ -149,9 +115,10 @@ export CLASSPATH=.:$JAVA\_HOME/lib/dt.jar:$JAVA\_HOME/lib/dt.jar:$JAVA\_HOME/lib
 * 下载linux使用的scala包，解压到路径下，设置读写权限，解压，配置：
 * sudo vim ~/.bashrc文件，添加如下内容：
 
-export SCALA\_HOME=/opt/app/scala-2.10.4
-
-export PATH=PATH:PATH:SCALA\_HOME/bin
+```text
+export SCALA_HOME=/opt/app/scala-2.10.4
+export PATH=PATH:PATH:SCALA_HOME/bin
+```
 
 * 使用命令生效：source ~/.bashrc
 * 校验：scala –version
@@ -162,13 +129,12 @@ export PATH=PATH:PATH:SCALA\_HOME/bin
 
 每台机器均执行如下命令：
 
-\# ssh-keygen -t rsa
-
-\# ssh-copy-id master
-
-\# ssh-copy-id slave1
-
-\# ssh-copy-id slave2
+```text
+# ssh-keygen -t rsa
+# ssh-copy-id master
+# ssh-copy-id slave1
+# ssh-copy-id slave2
+```
 
 ### Hadoop安装配置
 
@@ -180,9 +146,10 @@ export PATH=PATH:PATH:SCALA\_HOME/bin
 * vim hadoop-env.sh
 * 入配置内容，设置JAVA\_HOME和PATH路径:
 
-export JAVA\_HOME=/usr/lib/java/jdk1.8.0\_151
-
+```text
+export JAVA_HOME=/usr/lib/java/jdk1.8.0_151
 export PATH=$PATH:/opt/app/hadoop-2.9.0/bin
+```
 
 * source hadoop-env.sh
 
@@ -200,235 +167,145 @@ export JAVA\_HOME=/usr/lib/java/jdk1.8.0\_151
 * vim core-site.xml
 * 配置的点有fs默认名字、默认FS、IO操作的文件缓冲区大小、tmp目录、代理用户hosts、代理用户组，共6点。
 
-&lt;configuration&gt;
-
-&lt;property&gt;
-
- &lt;name&gt;fs.default.name&lt;/name&gt;
-
- &lt;value&gt;hdfs://slave1:50090&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;fs:defaultFS&lt;/name&gt;
-
- &lt;value&gt;hdfs://slave1:50090 &lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;io.file.buffer.size&lt;/name&gt;
-
- &lt;value&gt;131072&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
-
- &lt;value&gt;file:/opt/app/hadoop-2.9.0/tmp&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;hadoop.proxyuser.hduser.hosts&lt;/name&gt;
-
- &lt;value&gt;\*&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;hadoop.proxyuser.hduser.groups&lt;/name&gt;
-
- &lt;value&gt;\*&lt;/value&gt;
-
- &lt;/property&gt;
-
-&lt;property&gt;
-
- &lt;name&gt;hadoop.http.staticuser &lt;/name&gt;
-
- &lt;value&gt;hadoop&lt;/value&gt;
-
- &lt;/property&gt;
-
-&lt;/configuration&gt;
+```text
+<configuration>
+<property>
+ <name>fs.default.name</name>
+ <value>hdfs://slave1:50090</value>
+ </property>
+ <property>
+ <name>fs:defaultFS</name>
+ <value>hdfs://slave1:50090 </value>
+ </property>
+ <property>
+ <name>io.file.buffer.size</name>
+ <value>131072</value>
+ </property>
+ <property>
+ <name>hadoop.tmp.dir</name>
+ <value>file:/opt/app/hadoop-2.9.0/tmp</value>
+ </property>
+ <property>
+ <name>hadoop.proxyuser.hduser.hosts</name>
+ <value>*</value>
+ </property>
+ <property>
+ <name>hadoop.proxyuser.hduser.groups</name>
+ <value>*</value>
+ </property>
+<property>
+ <name>hadoop.http.staticuser </name>
+ <value>hadoop</value>
+ </property>
+</configuration>
+```
 
 #### 配置hdfs-site.xml
 
 * vim hdfs-site.xml
 * hdfs-site.xml配置的点有namenode的secondary、name目录、data目录、备份数目、开启webhdfs，共5点
 
-&lt;configuration&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;
-
- &lt;value&gt;slave1:50090&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
-
- &lt;value&gt;file:/opt/app/hadoop-2.9.0/name&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;
-
- &lt;value&gt;file:/opt/app/hadoop-2.9.0/data&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;dfs.replication&lt;/name&gt;
-
- &lt;value&gt;2&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;dfs.webhdfs.enabled&lt;/name&gt;
-
- &lt;value&gt;true&lt;/value&gt;
-
- &lt;/property&gt;
-
-&lt;/configuration&gt;
+```text
+<configuration>
+ <property>
+ <name>dfs.namenode.secondary.http-address</name>
+ <value>slave1:50090</value>
+ </property>
+ <property>
+ <name>dfs.namenode.name.dir</name>
+ <value>file:/opt/app/hadoop-2.9.0/name</value>
+ </property>
+ <property>
+ <name>dfs.datanode.data.dir</name>
+ <value>file:/opt/app/hadoop-2.9.0/data</value>
+ </property>
+ <property>
+ <name>dfs.replication</name>
+ <value>2</value>
+ </property>
+ <property>
+ <name>dfs.webhdfs.enabled</name>
+ <value>true</value>
+ </property>
+</configuration>
+```
 
 #### 配置mapred-site.xml
 
 * Vim hdfs-site.xml
 * mapred-site.xml配置的点有mapreduce的框架、jobhistory的地址、jobhistory的webapp地址，共3点。
 
-&lt;configuration&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
-
- &lt;value&gt;yarn&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;
-
- &lt;value&gt;slave1:10020&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;
-
- &lt;value&gt;slave1:19888&lt;/value&gt;
-
- &lt;/property&gt;
-
-&lt;/configuration&gt;
+```text
+<configuration>
+ <property>
+ <name>mapreduce.framework.name</name>
+ <value>yarn</value>
+ </property>
+ <property>
+ <name>mapreduce.jobhistory.address</name>
+ <value>slave1:10020</value>
+ </property>
+ <property>
+ <name>mapreduce.jobhistory.webapp.address</name>
+ <value>slave1:19888</value>
+ </property>
+</configuration>
+```
 
 #### 配置yarn-site.xml
 
 * Vim yarn-site.xml
 * yarn-site.xml配置的点有①nodemanager的aux-services及其类；②resourcemanager的地址、其sheduler地址、其resource-tracker地址、其admin地址以及webapp地址，共7点。
 
-&lt;configuration&gt;
-
-&lt;property&gt;
-
- &lt;name&gt;yarn.nodemanager.localizer.address&lt;/name&gt;
-
- &lt;value&gt;slave1:8050&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
-
- &lt;value&gt;mapreduce\_shuffle&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;
-
- &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;
-
- &lt;value&gt;slave1:8032&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;
-
- &lt;value&gt;slave1:8030&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;
-
- &lt;value&gt;slave1:8031&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;
-
- &lt;value&gt;slave1:8033&lt;/value&gt;
-
- &lt;/property&gt;
-
- &lt;property&gt;
-
- &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;
-
- &lt;value&gt;slave1:8088&lt;/value&gt;
-
- &lt;/property&gt;
-
-&lt;/configuration&gt;
+```text
+<configuration>
+<property>
+ <name>yarn.nodemanager.localizer.address</name>
+ <value>slave1:8050</value>
+ </property>
+ <property>
+ <name>yarn.nodemanager.aux-services</name>
+ <value>mapreduce_shuffle</value>
+ </property>
+ <property>
+ <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+ <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+ </property>
+ <property>
+ <name>yarn.resourcemanager.address</name>
+ <value>slave1:8032</value>
+ </property>
+ <property>
+ <name>yarn.resourcemanager.scheduler.address</name>
+ <value>slave1:8030</value>
+ </property>
+ <property>
+ <name>yarn.resourcemanager.resource-tracker.address</name>
+ <value>slave1:8031</value>
+ </property>
+ <property>
+ <name>yarn.resourcemanager.admin.address</name>
+ <value>slave1:8033</value>
+ </property>
+ <property>
+ <name>yarn.resourcemanager.webapp.address</name>
+ <value>slave1:8088</value>
+ </property>
+</configuration>
+```
 
 #### 配置slaves文件
 
 * Vim slaves
 * 在配置文件中加入如下内容：
 
+```text
 Slave1
-
 Slave2
-
 Slave3
-
 Slave4
-
 master
+```
 
 ### 启动hadoop服务
 
@@ -438,9 +315,10 @@ master
 
 #### 格式化Namenode\(只需要一次\)
 
-\# cd /opt/app/hadoop-2.9.0
-
-\# ./bin/hdfs namenode –format
+```text
+# cd /opt/app/hadoop-2.9.0
+# ./bin/hdfs namenode –format
+```
 
 #### 启动HDFS
 
