@@ -26,15 +26,15 @@
 * [Spark-with-hive搭建指南](da-jian-ji-lu/spark.md)
 * [Kubernetes](da-jian-ji-lu/kubernetes.md)
 * [OpenPai搭建指南](da-jian-ji-lu/untitled.md)
-* [Hive\(数据仓库\)](da-jian-ji-lu/hive-shu-ju-cang-ku.md)
 * [集群使用手册（上）](da-jian-ji-lu/ji-qun-shi-yong-shou-ce-shang.md)
 * [集群使用手册（下）](da-jian-ji-lu/ji-qun-shi-yong-shou-ce-xia.md)
 * [jupyter && pyspark联合使用](da-jian-ji-lu/untitled-1.md)
 * [Zeppelin可视化数据分析工具](da-jian-ji-lu/zeppelin.md)
+* [Zeppelin配置与使用](da-jian-ji-lu/zeppelin-pei-zhi-yu-shi-yong.md)
 
 ## 问题记录
 
-* [Untitled](wen-ti-ji-lu/untitled.md)
+* [集群搭建中的问题汇总](wen-ti-ji-lu/untitled.md)
 
 ## 讨论区
 

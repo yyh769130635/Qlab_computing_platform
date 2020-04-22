@@ -4,9 +4,11 @@ description: 作者：杨煜涵
 
 # jupyter && pyspark联合使用
 
-## 使用方式1：
+不习惯zeppelin网页工具的，可以用jupyter notebook直接配置使用pyspark，效果一样。
 
-jupyter中导入pyspark使用
+## 使用方式1：（推荐！！）
+
+### jupyter中导入pyspark的包使用
 
 step1: 打开jupyter, 映射已经设置好，端口号10.129.2.155:8899
 
@@ -28,9 +30,7 @@ exec(open(os.path.join(spark_name,'python/pyspark/shell.py')).read())
 ```
 
 [参考链接](https://blog.csdn.net/dxyna/article/details/79772343)  
- 主要是将pyspark中的一些包导入python中
-
-### 缺点：不能分配核数与内存，都是默认的参数
+ 主要是将pyspark中的一些包识别到路径中
 
 ## 使用方式2：
 
@@ -77,10 +77,12 @@ pyspark --master spark://slave:7077 --executor-memory xxxM --total-executor-core
 
 ### 缺点：
 
-因为export了PYSPARK\_DRIVER\_PYTHON与PYSPARK\_DRIVER\_PYTHON\_OPTS两个环境变量后，非shell的pyspark 生怕认可应用也将使用jupyter-notebook，这必然引起混乱，**所以推荐的还是在pyspark的启动命令中当时指定**  
+因为export了PYSPARK\_DRIVER\_PYTHON 与PYSPARK\_DRIVER\_PYTHON\_OPTS 两个环境变量后，非shell的pyspark 生怕认可应用也将使用jupyter-notebook，这必然引起混乱，**所以推荐的还是在pyspark的启动命令中当时指定**  
  实测，添加到环境变量中后，spark只支持ipynb的文件，因此不用。
 
 [参考链接](https://blog.csdn.net/NJZhuJinhua/article/details/79441217)
+
+## 如下是启动命令
 
 ```text
 spark-submit --master spark://slave1:7077 --total-executor-cores 144 --executor-memory 70g --driver-memory 30g

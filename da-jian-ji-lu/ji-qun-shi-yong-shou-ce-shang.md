@@ -4,43 +4,39 @@ description: 作者：杨煜涵
 
 # 集群使用手册（上）
 
-集群使用手册
+## 目录
 
-目录
+[一、直接将.py文件提交到spark集群执行 ](ji-qun-shi-yong-shou-ce-shang.md#yi-zhi-jie-jiang-py-wen-jian-ti-jiao-dao-spark-ji-qun-zhi-hang)
 
-集群使用手册 1
+[二、Maven&Intellij IDEA打jar包以及创建scala project ](ji-qun-shi-yong-shou-ce-shang.md#er-mavenintellij-idea-da-jar-bao-yi-ji-chuang-jian-scala-project)
 
-一、直接将.py文件提交到spark集群执行 2
+[1. Intellij IDEA+maven搭建scala环境: ](ji-qun-shi-yong-shou-ce-shang.md#1-intellij-ideamaven-da-jian-scala-huan-jing)
 
-二、Maven&Intellij IDEA打jar包以及创建scala project 2
+1.1 安装JDK 
 
-1. Intellij IDEA+maven搭建scala环境: 2
+[2. 安装intellij-idea ](ji-qun-shi-yong-shou-ce-shang.md#2-an-zhuang-intellijidea)
 
-1.1 安装JDK 2
+[3. scala插件安装 ](ji-qun-shi-yong-shou-ce-shang.md#2-an-zhuang-intellijidea)
 
-2. 安装intellij-idea 3
+[4. 设置全局JDK和Scala SDK](ji-qun-shi-yong-shou-ce-shang.md#4-she-zhi-quan-ju-jdk-he-scala-sdk) 
 
-3. scala插件安装 3
-
-4. 设置全局JDK和Scala SDK 4
-
-4.1 设置全局JDK，configure-&gt;project defaults-&gt;project structure -&gt;SDKs 4
+4.1 设置全局JDK，configure-&gt;project defaults-&gt;project structure -&gt;SDKs 
 
 4.2设置Scala SDK，configure-&gt;project defaults-&gt;project structure -&gt;global libraries -&gt; + -&gt;Scala SDK 5
 
-5、创建maven工程 5
+[5、创建maven工程 ](ji-qun-shi-yong-shou-ce-shang.md#5-chuang-jian-maven-gong-cheng)
 
-三、Intellij IDEA打包scala代码在spark中运行： 7
+[三、Intellij IDEA打包scala代码在spark中运行： ](ji-qun-shi-yong-shou-ce-shang.md#san-intellij-idea-da-bao-scala-dai-ma-zai-spark-zhong-yun-hang)
 
-1、修改pom.xml文件 7
+[1、修改pom.xml文件](ji-qun-shi-yong-shou-ce-shang.md#1-xiu-gai-pomxml-wen-jian) 
 
-2、编写一个Scala程序，统计字母的行数 8
+[2、编写一个Scala程序，统计字母的行数 ](ji-qun-shi-yong-shou-ce-shang.md#2-bian-xie-yi-ge-scala-cheng-xu-tong-ji-zi-mu-de-hang-shu)
 
-3、打包代码 8
+[3、打包代码](ji-qun-shi-yong-shou-ce-shang.md#3-da-bao-dai-ma) 
 
-4、运行在spark集群上面 9
+[4、运行在spark集群上面](ji-qun-shi-yong-shou-ce-shang.md#4-yun-hang-zai-spark-ji-qun-shang-mian) 
 
-四、Spark集群的三种部署方式 10
+[四、Spark集群的三种部署方式 ](ji-qun-shi-yong-shou-ce-shang.md#si-spark-ji-qun-de-san-zhong-bu-shu-fang-shi)
 
 ## 一、直接将.py文件提交到spark集群执行
 
