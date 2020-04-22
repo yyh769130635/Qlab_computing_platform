@@ -8,39 +8,39 @@ description: 作者：杨煜涵
 
 目录
 
-[集群使用手册 1]()
+集群使用手册 1
 
-[一、直接将.py文件提交到spark集群执行 2]()
+一、直接将.py文件提交到spark集群执行 2
 
-[二、Maven&Intellij IDEA打jar包以及创建scala project 2]()
+二、Maven&Intellij IDEA打jar包以及创建scala project 2
 
-[1. Intellij IDEA+maven搭建scala环境: 2]()
+1. Intellij IDEA+maven搭建scala环境: 2
 
-[1.1 安装JDK 2]()
+1.1 安装JDK 2
 
-[2. 安装intellij-idea 3]()
+2. 安装intellij-idea 3
 
-[3. scala插件安装 3]()
+3. scala插件安装 3
 
-[4. 设置全局JDK和Scala SDK 4]()
+4. 设置全局JDK和Scala SDK 4
 
-[4.1 设置全局JDK，configure-&gt;project defaults-&gt;project structure -&gt;SDKs 4]()
+4.1 设置全局JDK，configure-&gt;project defaults-&gt;project structure -&gt;SDKs 4
 
-[4.2设置Scala SDK，configure-&gt;project defaults-&gt;project structure -&gt;global libraries -&gt; + -&gt;Scala SDK 5]()
+4.2设置Scala SDK，configure-&gt;project defaults-&gt;project structure -&gt;global libraries -&gt; + -&gt;Scala SDK 5
 
-[5、创建maven工程 5]()
+5、创建maven工程 5
 
-[三、Intellij IDEA打包scala代码在spark中运行： 7]()
+三、Intellij IDEA打包scala代码在spark中运行： 7
 
-[1、修改pom.xml文件 7]()
+1、修改pom.xml文件 7
 
-[2、编写一个Scala程序，统计字母的行数 8]()
+2、编写一个Scala程序，统计字母的行数 8
 
-[3、打包代码 8]()
+3、打包代码 8
 
-[4、运行在spark集群上面 9]()
+4、运行在spark集群上面 9
 
-[四、Spark集群的三种部署方式 10]()
+四、Spark集群的三种部署方式 10
 
 ## 一、直接将.py文件提交到spark集群执行
 

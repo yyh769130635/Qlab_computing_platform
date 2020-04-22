@@ -1,10 +1,27 @@
-# Evernote Export
+# jupyter && pyspark联合使用
 
 ## 使用方式1：
 
-jupyter中导入pyspark使用step1: 打开jupyter, 映射已经设置好，端口号10.129.2.155:8899hadoop@slave1:~$ jupyter notebookstep2: 新建ipynb文件，输入import osimport sysspark\_name = os.environ.get\('SPARK\_HOME',None\)if not spark\_name:    raise ValueErrorError\('spark环境没有配置好'\)sys.path.insert\(0,os.path.join\(spark\_name,'python'\)\)sys.path.insert\(0,os.path.join\(spark\_name,'python/lib/py4j-0.10.4-src.zip'\)\)exec\(open\(os.path.join\(spark\_name,'python/pyspark/shell.py'\)\).read\(\)\)如图：  
-   
- 就可以使用了
+jupyter中导入pyspark使用
+
+step1: 打开jupyter, 映射已经设置好，端口号10.129.2.155:8899
+
+```text
+hadoop@slave1:~$ jupyter notebook
+```
+
+step2: 新建ipynb文件，输入
+
+```text
+import os
+import sys
+spark_name = os.environ.get('SPARK_HOME',None)
+if not spark_name:    
+    raise ValueErrorError('spark环境没有配置好')
+sys.path.insert(0,os.path.join(spark_name,'python'))
+sys.path.insert(0,os.path.join(spark_name,'python/lib/py4j-0.10.4-src.zip'))
+exec(open(os.path.join(spark_name,'python/pyspark/shell.py')).read())
+```
 
 [参考链接](https://blog.csdn.net/dxyna/article/details/79772343)  
  主要是将pyspark中的一些包导入python中

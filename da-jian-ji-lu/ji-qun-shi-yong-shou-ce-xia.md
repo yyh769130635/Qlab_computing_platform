@@ -1,60 +1,64 @@
+---
+description: 作者：杨煜涵
+---
+
 # 集群使用手册（下）
 
 Spark集群三种部署模式与提交任务
 
 目录
 
-[Spark集群三种部署模式与提交任务 1]()
+Spark集群三种部署模式与提交任务 1
 
-[部署方式简介 2]()
+部署方式简介 2
 
-[一、 Spark Standalone Mode 3]()
+一、 Spark Standalone Mode 3
 
-[1.1 简介： 3]()
+1.1 简介： 3
 
-[提交参数： 3]()
+提交参数： 3
 
-[命令 3]()
+命令 3
 
-[e.g: 3]()
+e.g: 3
 
-[1.2 client模式（默认） 3]()
+1.2 client模式（默认） 3
 
-[命令 3]()
+命令 3
 
-[过程 3]()
+过程 3
 
-[结果查看 4]()
+结果查看 4
 
-[1.3 cluster模式\(不显示运行结果\) 5]()
+1.3 cluster模式\(不显示运行结果\) 5
 
-[命令 5]()
+命令 5
 
-[过程 5]()
+过程 5
 
-[二、 Spark on YARN 6]()
+二、 Spark on YARN 6
 
-[2.1 简介 6]()
+2.1 简介 6
 
-[2.2 yarn-cluster和yarn-client模式的区别 6]()
+2.2 yarn-cluster和yarn-client模式的区别 6
 
-[2.3 yarn-cluster模式 6]()
+2.3 yarn-cluster模式 6
 
-[命令： 6]()
+命令： 6
 
-[过程 7]()
+过程 7
 
-[结果查看 7]()
+结果查看 7
 
-[2.4 yarn-client模式（默认） 8]()
+2.4 yarn-client模式（默认） 8
 
-[命令： 8]()
+命令： 8
 
-[过程： 8]()
+过程： 8
 
-[三、 Spark on Mesos 9]()
+三、 Spark on Mesos 9
 
-[四、 Spark on Kubernetes 9]()
+四、 Spark on Kubernetes 9
 
 ### 部署方式简介
 

@@ -30,7 +30,7 @@
 * [Hive\(数据仓库\)](da-jian-ji-lu/hive-shu-ju-cang-ku.md)
 * [集群使用手册（上）](da-jian-ji-lu/ji-qun-shi-yong-shou-ce-shang.md)
 * [集群使用手册（下）](da-jian-ji-lu/ji-qun-shi-yong-shou-ce-xia.md)
-* [Evernote Export](da-jian-ji-lu/untitled-1.md)
+* [jupyter && pyspark联合使用](da-jian-ji-lu/untitled-1.md)
 * [Zeppelin可视化数据分析工具](da-jian-ji-lu/zeppelin.md)
 
 ## 问题记录

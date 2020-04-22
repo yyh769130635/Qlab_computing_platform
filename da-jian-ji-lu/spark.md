@@ -4,49 +4,49 @@ description: 参与人员：唐元博、杨煜涵、陈靖仪          时间：
 
 # Spark-with-hive搭建指南
 
-[1 项目简介 1]()
+1 项目简介 1
 
-[1.1 Spark简介 1]()
+1.1 Spark简介 1
 
-[1.2 主要特点与优点 1]()
+1.2 主要特点与优点 1
 
-[1.3 Spark生态系统 1]() 
+1.3 Spark生态系统 1 
 
-[2 Spark搭建 2]()
+2 Spark搭建 2
 
-[2.1 Spark安装主要任务 2]()
+2.1 Spark安装主要任务 2
 
-[2.2 修改配置文件 2]()
+2.2 修改配置文件 2
 
-[2.3 配置conf/slaves 2]()
+2.3 配置conf/slaves 2
 
-[2.4 配置conf/spark-env.sh 2]()
+2.4 配置conf/spark-env.sh 2
 
-[2.5 启动spark 3]()
+2.5 启动spark 3
 
-[3 Hive安装 4]()
+3 Hive安装 4
 
-[3.1 配置环境变量 4]()
+3.1 配置环境变量 4
 
-[3.2 配置conf/hive-site.xml 4]()
+3.2 配置conf/hive-site.xml 4
 
-[4 Mysql安装 5]()
+4 Mysql安装 5
 
-[4.1 Ubuntu下安装mysql 5]()
+4.1 Ubuntu下安装mysql 5
 
-[4.2 测试是否mysql安装成功 5]()
+4.2 测试是否mysql安装成功 5
 
-[4.3 Mysql与hive配置 5]()
+4.3 Mysql与hive配置 5
 
-[5 Hive && spark 6]()
+5 Hive && spark 6
 
-[5.1 Spark on hive 6]()
+5.1 Spark on hive 6
 
-[5.2 Hive on spark 6]()
+5.2 Hive on spark 6
 
-[6 计算平台验证 7]()
+6 计算平台验证 7
 
-[7 参考资料 8]()
+7 参考资料 8
 
 ## 项目简介
 
