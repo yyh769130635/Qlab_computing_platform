@@ -37,9 +37,7 @@ Spark最初由美国加州伯克利大学（UCBerkeley）的AMP实验室于2009�
 
 Spark的生态系统主要包含了Spark Core、Spark SQL、Spark Streaming、MLLib和GraphX 等组件
 
-![](../.gitbook/assets/0%20%281%29.png)
-
-图1 spark生态系统
+![spark&#x751F;&#x6001;&#x7CFB;&#x7EDF;](../.gitbook/assets/0%20%281%29.png)
 
 ## 2.Spark搭建
 
