@@ -6,27 +6,27 @@ description: 作者：杨煜涵
 
 ## 目录
 
-一、 Spark Standalone Mode 
+[**一、 Spark Standalone Mode** ](ji-qun-shi-yong-shou-ce-xia.md#spark-standalone-mode)
 
-1.1 简介： 
+[1.1 简介](ji-qun-shi-yong-shou-ce-xia.md#11-jian-jie) 
 
-1.2 client模式（默认） 
+[1.2 client模式（默认） ](ji-qun-shi-yong-shou-ce-xia.md#12-client-mo-shi-mo-ren)
 
-1.3 cluster模式\(不显示运行结果\) 
+[1.3 cluster模式\(不显示运行结果\)](ji-qun-shi-yong-shou-ce-xia.md#13-cluster-mo-shi-bu-xian-shi-yun-hang-jie-guo) 
 
-二、 Spark on YARN 
+[**二、 Spark on YARN**](ji-qun-shi-yong-shou-ce-xia.md#spark-on-yarn) 
 
-2.1 简介 
+[2.1 简介 ](ji-qun-shi-yong-shou-ce-xia.md#21-jian-jie)
 
-2.2 yarn-cluster和yarn-client模式的区别 
+[2.2 yarn-cluster和yarn-client模式的区别](ji-qun-shi-yong-shou-ce-xia.md#22-yarncluster-he-yarnclient-mo-shi-de-qu-bie) 
 
-2.3 yarn-cluster模式 
+[2.3 yarn-cluster模式](ji-qun-shi-yong-shou-ce-xia.md#23-yarncluster-mo-shi) 
 
-2.4 yarn-client模式（默认） 
+[2.4 yarn-client模式（默认）](ji-qun-shi-yong-shou-ce-xia.md#24-yarnclient-mo-shi-mo-ren) 
 
-三、 Spark on Mesos 
+[**三、 Spark on Mesos**](ji-qun-shi-yong-shou-ce-xia.md#spark-on-mesos) 
 
-四、 Spark on Kubernetes 
+[**四、 Spark on Kubernetes** ](ji-qun-shi-yong-shou-ce-xia.md#spark-on-kubernetes)
 
 ## 部署方式简介
 
@@ -196,15 +196,15 @@ yarn-cluster模式下，driver运行在AM中，它负责向YARN申请资源，�
 
 \#上传打包好的xx.jar到/sparkapp目录下
 
-$hdfs dfs -put /loaclpath/xx.jar /sparkapp
+`$hdfs dfs -put /loaclpath/xx.jar /sparkapp`
 
 \#查看已上传的文件
 
-$ hdfs dfs -ls /sparkapp
+`$ hdfs dfs -ls /sparkapp`
 
-$spark-submit --master yarn-cluster --class SimpleApp hdfs://master:50090/
+`$spark-submit --master yarn-cluster --class SimpleApp hdfs://master:50090/`
 
-user/hadoop/wordcount2.jar
+`user/hadoop/wordcount2.jar`
 
 #### 过程
 
@@ -244,11 +244,11 @@ i\).申请资源 ii\).启动Executor iii\).任务调度
 
 #### 命令：
 
-./spark-submit --master yarn --class ... jar ... ....
+`./spark-submit --master yarn --class ... jar ... ....`
 
-./spark-submit --master yarn-client --class ...jar ....
+`./spark-submit --master yarn-client --class ...jar ....`
 
-./spark-submit --master yarn --deploy-mode client --class ..jar ...
+`./spark-submit --master yarn --deploy-mode client --class ..jar ...`
 
 #### 过程：
 

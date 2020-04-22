@@ -89,23 +89,23 @@ b. 然后加入到环境变量
 
 打开激活的idea，然后点configure-&gt;settings-&gt;plugins，然后直接搜索scala，安装即可
 
-![https://images2018.cnblogs.com/blog/1167688/201808/1167688-20180821184354550-588288604.png](../.gitbook/assets/2.png)
+![](../.gitbook/assets/2.png)
 
-![https://images2018.cnblogs.com/blog/1167688/201808/1167688-20180821184535287-1243491967.png](../.gitbook/assets/3%20%283%29.png)
+![](../.gitbook/assets/3%20%283%29.png)
 
 ### 4. 设置全局JDK和Scala SDK
 
 #### 4.1 设置全局JDK，configure-&gt;project defaults-&gt;project structure -&gt;SDKs
 
-![https://images2018.cnblogs.com/blog/1167688/201808/1167688-20180821184904044-1970434506.png](../.gitbook/assets/4%20%282%29.png)
+![](../.gitbook/assets/4%20%282%29.png)
 
-![https://images2018.cnblogs.com/blog/1167688/201808/1167688-20180821185149107-317171033.png](../.gitbook/assets/5.png)
+![](../.gitbook/assets/5.png)
 
 选择刚刚安装的jdk的路径。
 
 #### 4.2设置Scala SDK，configure-&gt;project defaults-&gt;project structure -&gt;global libraries -&gt; + -&gt;Scala SDK
 
-![https://images2018.cnblogs.com/blog/1167688/201808/1167688-20180821190224724-605044103.png](../.gitbook/assets/6%20%281%29.png)
+![](../.gitbook/assets/6%20%281%29.png)
 
 ### 5、创建maven工程
 
@@ -115,17 +115,17 @@ b. 加入到环境变量
 
 c. 创建一个新的maven工程，选择JDK，然后next，GroupID和ArtifactId可以命名，然后next，finish
 
-![https://images2018.cnblogs.com/blog/1167688/201808/1167688-20180821190507882-778777269.png](../.gitbook/assets/7%20%281%29.png)
+![](../.gitbook/assets/7%20%281%29.png)
 
-![https://images2018.cnblogs.com/blog/1167688/201808/1167688-20180821190539329-1337420710.png](../.gitbook/assets/8%20%281%29.png)
+![](../.gitbook/assets/8%20%281%29.png)
 
-![https://images2018.cnblogs.com/blog/1167688/201808/1167688-20180821190559133-1982090025.png](../.gitbook/assets/9.png)
+![](../.gitbook/assets/9.png)
 
 创建完成后，将Scala的框架添加到这个项目中，方法为：
 
 在项目名称上右键菜单中点击Add Framework Support...，然后在打开的对话框左侧边栏中，勾选Scala前面的复选框，然后点击确定即可
 
-![https://images2017.cnblogs.com/blog/1216223/201712/1216223-20171229105256022-925226617.png](../.gitbook/assets/10.png)
+![](../.gitbook/assets/10.png)
 
 把这三个文件夹都删掉，在main文件夹中建立一个名为 scala 的文件夹，并右键点击 scala 文件夹，选择 Make Directory as，然后选择Sources Root ，这里主要意思是将 scala 文件夹标记为一个源文件的根目录，然后在其内的所有代码中的 package ，其路径就从这个根目录下开始算起。
 
@@ -201,7 +201,7 @@ file-&gt;Porject Structure-&gt;Artifacts-&gt;加号-&gt;JAR-&gt;from modules...
 
 然后填写定义的类名，选择copy to..选项（打包这一个类）
 
-![https://images2018.cnblogs.com/blog/1167688/201808/1167688-20180821192529504-1370634487.png](../.gitbook/assets/12.png)
+![](../.gitbook/assets/12.png)
 
 点击ok之后，然后build-&gt;build Artifacts-&gt;build，等待build完成。然后可以在项目的这个目录中找到刚刚打包的这个jar包
 
