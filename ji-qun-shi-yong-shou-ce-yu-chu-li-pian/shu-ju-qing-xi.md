@@ -25,7 +25,7 @@ df = spark.createDataFrame([
  ],['id','weight','height','age','gender'])
 ```
 
-检查重复值，两个数字不同，则认为有完全相同的重复数据。可以通过使用.dropDuplicates\(…\)方法将重复行移除。
+检查重复值，两个数字不同，则认为有完全相同的重复数据。可以使用.dropDuplicates\(…\)方法将重复行移除。
 
 ```python
 print('Count of rows:{0}'.format(df.count()))
