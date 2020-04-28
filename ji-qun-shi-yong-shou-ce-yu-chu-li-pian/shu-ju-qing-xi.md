@@ -60,7 +60,7 @@ df.agg(fn.count('id').alias('count'),
 df.withColumn('new_id',fn.monotonically_increasing_id()).show()
 ```
 
-![](../.gitbook/assets/image%20%2828%29.png)
+![](../.gitbook/assets/image%20%2829%29.png)
 
 ## 缺失值
 

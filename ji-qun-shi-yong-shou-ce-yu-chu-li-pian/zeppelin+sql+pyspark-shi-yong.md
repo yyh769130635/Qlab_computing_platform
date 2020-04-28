@@ -10,7 +10,7 @@ description: 作者：杨煜涵         时间：2020-4-19
 
 zeppelin这个工具非常方便的嵌入了多种编译器，具有数据可视化功能，以及编译器的资源配置功能。相较之前计算资源的通过shell命令的分配，zeppelin可以直接通过web页面指定资源的配置：
 
-![](../.gitbook/assets/image%20%2836%29.png)
+![](../.gitbook/assets/image%20%2838%29.png)
 
 ### 多核与单核性能对比
 
