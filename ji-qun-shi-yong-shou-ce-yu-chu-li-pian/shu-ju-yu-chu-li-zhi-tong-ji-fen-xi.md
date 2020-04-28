@@ -48,7 +48,7 @@ df_miss=df.agg(*[ (1-fn.count(c)/(fn.count('*'))).alias(c )
 df_miss.show()
 ```
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](../.gitbook/assets/image%20%2828%29.png)
 
 ### **4.统一某一列缺失的个数**
 
@@ -149,4 +149,26 @@ df1.show()
 ```
 
 ![](../.gitbook/assets/image%20%289%29.png)
+
+## 性能对比
+
+zeppelin这个工具非常方便的嵌入了多种编译器，数据可视化，以及编译器的配置。相较之前计算资源的通过shell命令的分配，zeppelin可以直接通过web页面配置资源：
+
+![](../.gitbook/assets/image%20%2824%29.png)
+
+实验中，我们选取了10G的数据展示一下多核并行处理计算速度的优势。（需要注意的是，并不是所有计算都能达到加速的效果，对于一些小规模数据集，或者是算法中存在着非常复杂的迭代递归计算，spark并不一定适合），主要对比的是cpu核数的影响：
+
+| code | core 1, memory 50G | core 20, memory 50G |
+| :--- | :--- | :--- |
+| 计算缺失率 | 4 min 50 sec | 34 sec |
+| df.select\("City"\).filter\("City is null"\).count\(\) | 2 min 21 sec | 22 sec |
+| df.select\("City"\).count\(\) | 2 min 17 sec | 15 sec |
+| df.select\("City"\).distinct\(\).count\(\) | 2 min 24 sec | 13 sec |
+| 统计缺失个数 | 2 min 22 sec | 14 sec |
+| 统计数量并排序 | 2 min 28 sec | 11 sec |
+| df.groupBy\("Complaint Type"\).count\(\).show\(\) |  | 12 sec |
+
+### zeppelin可视化
+
+
 
