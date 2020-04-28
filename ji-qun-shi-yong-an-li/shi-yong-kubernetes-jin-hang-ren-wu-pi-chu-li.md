@@ -2,7 +2,7 @@
 description: 参与人员：唐元博、杨煜涵、陈靖仪          时间：2020年3月15日
 ---
 
-# 使用kubernetes进行任务批处理
+# 使用kubernetes加速covid-19模型训练
 
 1 概述 1
 

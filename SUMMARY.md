@@ -17,12 +17,11 @@
 
 ## 集群使用案例
 
-* [使用kubernetes加速covid-19模型训练](ji-qun-shi-yong-an-li/shi-yong-kubernetes-jia-su-covid19-mo-xing-xun-lian.md)
+* [使用kubernetes加速covid-19模型训练](ji-qun-shi-yong-an-li/shi-yong-kubernetes-jin-hang-ren-wu-pi-chu-li.md)
 
 ## 计算资源使用规范 <a id="shi-yan-shi-ji-suan-zi-yuan-shi-yong-gui-fan"></a>
 
 * [Outline](shi-yan-shi-ji-suan-zi-yuan-shi-yong-gui-fan/outline.md)
-* [使用kubernetes进行任务批处理](shi-yan-shi-ji-suan-zi-yuan-shi-yong-gui-fan/shi-yong-kubernetes-jin-hang-ren-wu-pi-chu-li.md)
 
 ## 常用大数据工具搭建记录 <a id="da-jian-ji-lu"></a>
 
