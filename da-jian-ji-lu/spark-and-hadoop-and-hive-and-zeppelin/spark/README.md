@@ -43,7 +43,7 @@ Spark最初由美国加州伯克利大学（UCBerkeley）的AMP实验室于2009�
 
 Spark的生态系统主要包含了Spark Core、Spark SQL、Spark Streaming、MLLib和GraphX 等组件
 
-![spark&#x751F;&#x6001;&#x7CFB;&#x7EDF;](../../../.gitbook/assets/0%20%281%29.png)
+![spark&#x751F;&#x6001;&#x7CFB;&#x7EDF;](../../../.gitbook/assets/0%20%282%29.png)
 
 ## 2.Spark搭建
 
@@ -117,7 +117,7 @@ export SPARK_WORKER_MEMORY=100G
 
 * 其余节点上的进程有：
 
-![](../../../.gitbook/assets/2%20%283%29.png)
+![](../../../.gitbook/assets/2%20%284%29.png)
 
 ## 3.Hive安装
 
@@ -264,7 +264,7 @@ hive>select count(*) from test;
 
 通过[http://&lt;master-ip&gt;:18080](http://10.129.2.155:18080/)端口我们可以访问jobhistory的webUI界面，查看已经运行的一些任务以及结果。
 
-![](../../../.gitbook/assets/4%20%281%29.png)
+![](../../../.gitbook/assets/4%20%282%29.png)
 
 ## 参考资料
 

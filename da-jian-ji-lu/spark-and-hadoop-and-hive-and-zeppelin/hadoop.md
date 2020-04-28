@@ -102,7 +102,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/to
 * 使用命令生效：`source ~/.bashrc`
 * 校验：`java –version`
 
-![](../../.gitbook/assets/2%20%282%29.png)
+![](../../.gitbook/assets/2%20%283%29.png)
 
 #### JDK安装及配置
 
@@ -117,7 +117,7 @@ export PATH=PATH:PATH:SCALA_HOME/bin
 * 使用命令生效：`source ~/.bashrc`
 * 校验：`scala –version`
 
-![](../../.gitbook/assets/3%20%282%29.png)
+![](../../.gitbook/assets/3%20%283%29.png)
 
 #### ssh免密登陆
 
@@ -321,7 +321,7 @@ master
 
 此时在master上面运行的进程有：NameNode、SecondaryNameNode和DataNode
 
-![](../../.gitbook/assets/4%20%284%29.png)
+![](../../.gitbook/assets/4%20%285%29.png)
 
 #### 启动YARN
 

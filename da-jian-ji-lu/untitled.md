@@ -176,11 +176,11 @@ OpenPAI服务包含以下几大组件：
 
 进入系统之后我们可以从webUI界面中看到集群的基本信息，包括但不限于分布式文件系统的节点总数、系统总容量等信息。
 
-![HDFS&#x7CFB;&#x7EDF;&#x96C6;&#x7FA4;&#x6982;&#x51B5;](../.gitbook/assets/3%20%281%29.png)
+![HDFS&#x7CFB;&#x7EDF;&#x96C6;&#x7FA4;&#x6982;&#x51B5;](../.gitbook/assets/3%20%282%29.png)
 
 这表明HDFS系统已经搭建成功。Apache Hadoop YARN （Yet Another Resource Negotiator，另一种资源协调者）是一种新的 Hadoop 资源管理器，它是一个通用资源管理系统，可为上层应用提供统一的资源管理和调度，它的引入为集群在利用率、资源统一管理和数据共享等方面带来了巨大好处。而在yarn资源调度界面中我们可以看到如下信息：
 
-![ yarn&#x8D44;&#x6E90;&#x8C03;&#x5EA6;&#x754C;&#x9762;](../.gitbook/assets/4%20%283%29.png)
+![ yarn&#x8D44;&#x6E90;&#x8C03;&#x5EA6;&#x754C;&#x9762;](../.gitbook/assets/4%20%284%29.png)
 
 ## 参考资料
 

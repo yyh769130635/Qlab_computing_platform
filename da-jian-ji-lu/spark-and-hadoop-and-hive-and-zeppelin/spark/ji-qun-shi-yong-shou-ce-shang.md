@@ -61,7 +61,7 @@ print("Lines with a: %i, lines with b: %i" % (numAs, numBs))
 
 运行成功：
 
-![](../../../.gitbook/assets/0%20%282%29.png)
+![](../../../.gitbook/assets/0%20%283%29.png)
 
 ## 二、Maven&Intellij IDEA打jar包以及创建scala project
 
@@ -95,13 +95,13 @@ b. 然后加入到环境变量
 
 ![](../../../.gitbook/assets/2.png)
 
-![](../../../.gitbook/assets/3%20%283%29.png)
+![](../../../.gitbook/assets/3%20%284%29.png)
 
 ### 4. 设置全局JDK和Scala SDK
 
 #### 4.1 设置全局JDK，configure-&gt;project defaults-&gt;project structure -&gt;SDKs
 
-![](../../../.gitbook/assets/4%20%282%29.png)
+![](../../../.gitbook/assets/4%20%283%29.png)
 
 ![](../../../.gitbook/assets/5.png)
 
