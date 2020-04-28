@@ -81,7 +81,7 @@ export HADOOP_CONF_DIR=~/local/hadoop-2.9.0
 ~/bin$ jps
 ```
 
-![&#x542F;&#x52A8;&#x6210;&#x529F;](../../../.gitbook/assets/image%20%288%29.png)
+![&#x542F;&#x52A8;&#x6210;&#x529F;](../../../.gitbook/assets/image%20%2810%29.png)
 
 #### 7.进入zeppelin
 
