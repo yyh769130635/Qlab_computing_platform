@@ -13,6 +13,7 @@
 * [数据清洗](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/shu-ju-qing-xi.md)
 * [数据统计分析](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/shu-ju-yu-chu-li-zhi-tong-ji-fen-xi.md)
 * [特征分析与降维](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/te-zheng-fen-xi-yu-jiang-wei.md)
+* [Zeppelin+sql+pyspark使用](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/zeppelin+sql+pyspark-shi-yong.md)
 
 ## 集群使用案例
 
