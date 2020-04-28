@@ -23,7 +23,6 @@
 
 * [Outline](shi-yan-shi-ji-suan-zi-yuan-shi-yong-gui-fan/outline.md)
 * [使用kubernetes进行任务批处理](shi-yan-shi-ji-suan-zi-yuan-shi-yong-gui-fan/shi-yong-kubernetes-jin-hang-ren-wu-pi-chu-li.md)
-* [Spark 优化方法](shi-yan-shi-ji-suan-zi-yuan-shi-yong-gui-fan/spark-you-hua-fang-fa.md)
 
 ## 常用大数据工具搭建记录 <a id="da-jian-ji-lu"></a>
 
