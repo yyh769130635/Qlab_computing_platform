@@ -29,9 +29,11 @@ df = spark.createDataFrame([
 
 ```python
 print('Count of rows:{0}'.format(df.count()))
-print('Count of distinvt rows:{0}'.format(df.distinct().count()))
+print('Count of distinct rows:{0}'.format(df.distinct().count()))
 df=df.dropDuplicates()
 ```
+
+![](../.gitbook/assets/image%20%284%29.png)
 
 然后，检查第二种重复情况，对ID列以外的列作比较
 
@@ -44,6 +46,8 @@ print('Count of distinct ids:{0}'.format(
 df=df.dropDuplicates(subset=[c for c in df.columns if c!='id'])
 ```
 
+![](../.gitbook/assets/image%20%287%29.png)
+
 接着，使用.count\(…\)和.countDistinct\(…\)计算DataFrame的行数和ID 唯一数。
 
 因为已经移除所有重复数据，而ID数量却小于总数量，说明ID存在重复值，可用.monotonically\_increasing\_id\(\)方法给每一条记录提供唯一且递增的ID
@@ -55,6 +59,8 @@ df.agg(fn.count('id').alias('count'),
  ).show()
 df.withColumn('new_id',fn.monotonically_increasing_id()).show()
 ```
+
+![](../.gitbook/assets/image%20%2828%29.png)
 
 ## 缺失值
 
@@ -84,6 +90,8 @@ df_miss_no_income = df_miss.select([c for c in df_miss.columns if c!='income'])
 df_miss_no_income.dropna(thresh=3).show()
 ```
 
+![](../.gitbook/assets/image%20%2823%29.png)
+
 另外处理缺失值的方法是对其做填充。如果数据时离散型布尔值，可以通过添加第三个类型——Missing，将其转换为另一个分类变量；如果数据是数值类型，可以填充任何的平均数、中间数或者其他预定义的值。
 
 ```python
@@ -94,6 +102,8 @@ means = df_miss_no_income.agg(*[fn.mean(c).alias(c)
 means['gender']='missing'
 df_miss_no_income.fillna(means).show()
 ```
+
+![](../.gitbook/assets/image%20%2814%29.png)
 
 ## 离群值
 
@@ -141,5 +151,47 @@ fn.when(df_outliers[c].between(bounds[c][0], bounds[c][1]),df_outliers[c] )
 no_outliers.show()
 ```
 
+![](../.gitbook/assets/image%20%2824%29.png)
+
 此时，离群值可当做缺失值来做处理。
+
+## 处理实例
+
+使用数据：纽约311服务热线采集的用户数据，共有21960000条记录，文件大小13.68 GB
+
+```python
+import pyspark.sql.functions as fn
+#读入存放在分布式文件系统中的数据
+df=spark.read.csv("hdfs://10.129.2.155:50090/123/data/311-data/311-service-requests-from-2010-to-present.csv",header=True)
+#统计重复率
+print('Count of rows:{0}'.format(df.count()))
+print('Count of distinct rows:{0}'.format(df.distinct().count()))
+df=df.dropDuplicates()
+
+print('Count of ids:{0}'.format(df.count()))
+print('Count of distinct ids:{0}'.format(
+    df.select([c for c in df.columns if c!='Unique Key']).distinct().count())
+    )
+#引入subset参数，只查找subset指定的列，以去掉id不同而内容相同的记录
+df=df.dropDuplicates(subset=[c for c in df.columns if c!='Unique Key'])
+
+total=fn.count('Unique Key')
+df.agg(total.alias('count'),(fn.countDistinct('Unique Key')).alias('duplicates')).show()
+```
+
+```python
+#统计缺失值,显示缺失率
+df_miss=df.agg(*[
+    (1-fn.count(c)/(fn.count('*'))).alias(c )
+    for c in df.columns
+])
+pandas_df_miss = df_miss.toPandas()
+conv = pandas_df_miss.T
+conv = conv.reset_index()
+conv.columns = ['attribute','missing_rate']
+spark_df = spark.createDataFrame(conv)
+spark_df.createOrReplaceTempView("missing")
+```
+
+
 

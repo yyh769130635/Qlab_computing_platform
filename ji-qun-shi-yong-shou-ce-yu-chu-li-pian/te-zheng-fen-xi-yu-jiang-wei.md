@@ -66,7 +66,7 @@ print("ChiSqSelector output with top %d features selected" % selector.getNumTopF
 result.show()
 ```
 
-![&#x6839;&#x636E;&#x5361;&#x65B9;&#x68C0;&#x9A8C;&#x9009;&#x62E9;&#x51FA;&#x6765;&#x7684;&#x7279;&#x5F81;](../.gitbook/assets/image%20%2819%29.png)
+![&#x6839;&#x636E;&#x5361;&#x65B9;&#x68C0;&#x9A8C;&#x9009;&#x62E9;&#x51FA;&#x6765;&#x7684;&#x7279;&#x5F81;](../.gitbook/assets/image%20%2825%29.png)
 
 #### 特征转换
 
