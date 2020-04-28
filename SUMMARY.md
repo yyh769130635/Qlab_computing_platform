@@ -40,8 +40,6 @@
 
 ## 问题记录
 
-* [集群搭建中的问题汇总](wen-ti-ji-lu/untitled.md)
-
 ## 讨论区
 
 * [讨论区](tao-lun-qu/tao-lun-qu.md)
