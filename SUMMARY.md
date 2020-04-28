@@ -14,8 +14,10 @@
 * [数据清洗](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/shu-ju-qing-xi.md)
 * [特征分析与降维](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/te-zheng-fen-xi-yu-jiang-wei.md)
 * [数据统计](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/shu-ju-tong-ji.md)
-* [集群并行案例](ji-qun-bing-hang-an-li/README.md)
-  * [Untitled](ji-qun-bing-hang-an-li/untitled.md)
+
+## 集群使用案例
+
+* [使用kubernetes加速covid-19模型训练](ji-qun-shi-yong-an-li/shi-yong-kubernetes-jia-su-covid19-mo-xing-xun-lian.md)
 
 ## 计算资源使用规范 <a id="shi-yan-shi-ji-suan-zi-yuan-shi-yong-gui-fan"></a>
 
