@@ -166,7 +166,7 @@ zeppelin这个工具非常方便的嵌入了多种编译器，数据可视化，
 | df.select\("City"\).distinct\(\).count\(\) | 2 min 24 sec | 13 sec |
 | 统计缺失个数 | 2 min 22 sec | 14 sec |
 | 统计数量并排序 | 2 min 28 sec | 11 sec |
-| df.groupBy\("Complaint Type"\).count\(\).show\(\) |  | 12 sec |
+| df.groupBy\("Complaint Type"\).count\(\).show\(\) | 2 min 26 sec | 12 sec |
 
 ### zeppelin可视化
 
