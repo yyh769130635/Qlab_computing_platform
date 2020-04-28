@@ -19,6 +19,7 @@
 ## 集群使用案例
 
 * [使用kubernetes加速covid-19模型训练](ji-qun-shi-yong-an-li/shi-yong-kubernetes-jin-hang-ren-wu-pi-chu-li.md)
+* [Kmeans](ji-qun-shi-yong-an-li/kmeans.md)
 
 ## 计算资源使用规范 <a id="shi-yan-shi-ji-suan-zi-yuan-shi-yong-gui-fan"></a>
 
