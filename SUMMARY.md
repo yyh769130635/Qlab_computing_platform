@@ -34,7 +34,6 @@
   * [Zeppelin可视化数据分析工具](da-jian-ji-lu/spark-and-hadoop-and-hive-and-zeppelin/zeppelin/README.md)
     * [Zeppelin配置与使用](da-jian-ji-lu/spark-and-hadoop-and-hive-and-zeppelin/zeppelin/zeppelin-pei-zhi-yu-shi-yong.md)
 * [OpenPai搭建指南](da-jian-ji-lu/untitled.md)
-* [Kubernetes](da-jian-ji-lu/kubernetes.md)
 
 ## 问题记录
 
