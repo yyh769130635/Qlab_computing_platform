@@ -10,7 +10,7 @@ description: 作者：杨煜涵         时间：2020-4-19
 
 zeppelin这个工具非常方便的嵌入了多种编译器，具有数据可视化功能，以及编译器的资源配置功能。相较之前计算资源的通过shell命令的分配，zeppelin可以直接通过web页面指定资源的配置：
 
-![](../.gitbook/assets/image%20%2824%29.png)
+![](../.gitbook/assets/image%20%2829%29.png)
 
 ### 多核与单核性能对比
 
@@ -26,5 +26,32 @@ zeppelin这个工具非常方便的嵌入了多种编译器，具有数据可视
 | 统计数量并排序 | 2 min 28 sec | 11 sec |
 | df.groupBy\("Complaint Type"\).count\(\).show\(\) | 2 min 26 sec | 12 sec |
 
-## zeppelin可视化
+可以明显的发现，对于大规模数据的普通计算统计，多核效率提升明显，同时spark有大量内置的API函数，我们只需编写串行代码，机器自动并行执行，开发方便
+
+## 数据可视化
+
+zeppelin这个web工具，对于sql的可视化支持的非常好，我们只需将csv文件读入即可进行，然后生成临时表，即可编写sql语句操作，zeppelin会自动生成可视化的图片或者表格（python需要自己利用matplotlib包来绘图）：
+
+{% tabs %}
+{% tab title="Scala" %}
+```scala
+%spark
+val df=spark.read.option("header","true").csv("hdfs://10.129.2.155:50090/123/data/311-data/311-service-requests-from-2010-to-present.csv")
+df.groupBy("City").count().createOrReplaceTempView("city")
+```
+
+```scala
+%sql
+select * from city
+```
+{% endtab %}
+{% endtabs %}
+
+![](../.gitbook/assets/image%20%2815%29.png)
+
+![](../.gitbook/assets/image%20%288%29.png)
+
+zeppelin的sql编译器还提供了交互式的操作，可以通过图形界面选择自己需要的K,V：
+
+![](../.gitbook/assets/image%20%2812%29.png)
 

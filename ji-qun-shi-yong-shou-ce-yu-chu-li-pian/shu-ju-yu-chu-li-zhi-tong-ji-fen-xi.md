@@ -34,7 +34,7 @@ df.printSchema()
 df.describe("Survived").show()
 ```
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2814%29.png)
 
 ### **3.统计缺失率**
 
@@ -48,7 +48,7 @@ df_miss=df.agg(*[ (1-fn.count(c)/(fn.count('*'))).alias(c )
 df_miss.show()
 ```
 
-![](../.gitbook/assets/image%20%2828%29.png)
+![](../.gitbook/assets/image%20%2833%29.png)
 
 ### **4.统一某一列缺失的个数**
 
@@ -148,5 +148,5 @@ df1 = df1.withColumn("Survived", df1["Survived"].cast(IntegerType()))
 df1.show()
 ```
 
-![](../.gitbook/assets/image%20%289%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
