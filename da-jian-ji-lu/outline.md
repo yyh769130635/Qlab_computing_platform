@@ -15,7 +15,7 @@ description: 作者：杨煜涵                     时间：4月22日
 * docker
 * Kubernetes
 
-![](../.gitbook/assets/image%20%2851%29.png)
+![](../.gitbook/assets/image%20%2853%29.png)
 
 同学们可以根据自己的需求，使用不同的工具。
 
