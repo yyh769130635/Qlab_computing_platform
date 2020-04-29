@@ -48,7 +48,7 @@ df_miss=df.agg(*[ (1-fn.count(c)/(fn.count('*'))).alias(c )
 df_miss.show()
 ```
 
-![](../.gitbook/assets/image%20%2847%29.png)
+![](../.gitbook/assets/image%20%2848%29.png)
 
 ### **4.统一某一列缺失的个数**
 
