@@ -19,12 +19,11 @@ zeppelin这个工具非常方便的嵌入了多种编译器，具有数据可视
 | code | core 1, memory 50G | core 20, memory 50G |
 | :--- | :--- | :--- |
 | 计算缺失率 | 4 min 50 sec | 34 sec |
-| df.select\("City"\).filter\("City is null"\).count\(\) | 2 min 21 sec | 22 sec |
-| df.select\("City"\).count\(\) | 2 min 17 sec | 15 sec |
+| 数据筛选filter | 2 min 21 sec | 22 sec |
 | df.select\("City"\).distinct\(\).count\(\) | 2 min 24 sec | 13 sec |
 | 统计缺失个数 | 2 min 22 sec | 14 sec |
 | 统计数量并排序 | 2 min 28 sec | 11 sec |
-| df.groupBy\("Complaint Type"\).count\(\).show\(\) | 2 min 26 sec | 12 sec |
+| groupBy && count | 2 min 26 sec | 12 sec |
 
 可以明显的发现，对于大规模数据的普通计算统计，多核效率提升明显，同时spark有大量内置的API函数，我们只需编写串行代码，机器自动并行执行，开发方便
 
