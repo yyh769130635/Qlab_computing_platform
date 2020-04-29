@@ -37,6 +37,8 @@ df=df.dropDuplicates()
 
 然后，检查第二种重复情况，对ID列以外的列作比较
 
+{% tabs %}
+{% tab title="Python" %}
 ```python
 print('Count of ids:{0}'.format(df.count()))
 print('Count of distinct ids:{0}'.format(
@@ -45,6 +47,8 @@ print('Count of distinct ids:{0}'.format(
 #引入subset参数，只查找subset指定的列，以移除ID列以外内容相同的记录
 df=df.dropDuplicates(subset=[c for c in df.columns if c!='id'])
 ```
+{% endtab %}
+{% endtabs %}
 
 ![](../.gitbook/assets/image%20%287%29.png)
 
