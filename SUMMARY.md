@@ -7,10 +7,13 @@
 * [软件](fu-wu-qi-ji-ben-qing-kuang-jie-shao/ruan-jian.md)
 * [硬件](fu-wu-qi-ji-ben-qing-kuang-jie-shao/ying-jian.md)
 
+## 计算平台基础知识
+
+* [spark数据结构](ji-suan-ping-tai-ji-chu-zhi-shi/rdd-dataframe.md)
+
 ## 集群使用手册——预处理篇
 
 * [Outline](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/outline.md)
-* [spark数据结构](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/rdd-dataframe.md)
 * [数据清洗](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/shu-ju-qing-xi.md)
 * [数据统计分析](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/shu-ju-yu-chu-li-zhi-tong-ji-fen-xi.md)
 * [特征分析与降维](ji-qun-shi-yong-shou-ce-yu-chu-li-pian/te-zheng-fen-xi-yu-jiang-wei.md)
@@ -44,4 +47,5 @@
 
 * [讨论区](tao-lun-qu/tao-lun-qu.md)
 * [Untitled](untitled.md)
+* [Untitled](untitled-1.md)
 
