@@ -98,7 +98,7 @@ df_most.show()
 max(df.select("Age").collect())
 ```
 
-### **7.删选信息**
+### **7.筛选信息**
 
 碰到某些条件需要删选，可以借助filter函数，类似于sql的between 和 where
 
