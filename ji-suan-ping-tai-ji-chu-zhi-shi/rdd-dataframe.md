@@ -57,13 +57,13 @@ Dataset和DataFrame拥有完全相同的成员函数，区别只是每一行的�
 
 ## 总结
 
-#### RDD：
+### RDD：
 
 * RDD适合需要low-level函数式编程和操作数据集的情况；
 * **RDD一般和spark mlib同时使用**
 * RDD不支持sparksql操作
 
-#### dataframe && dataset
+### dataframe && dataset
 
 * DataFrame和Dataset适合结构化数据集，使用high-level和特定领域语言\(DSL\)编程，空间效率高和速度快。
 * 与RDD和Dataset不同，DataFrame每一行的类型固定为Row，只有通过解析才能获取各个字段的值,每一列的值没法直接访问
