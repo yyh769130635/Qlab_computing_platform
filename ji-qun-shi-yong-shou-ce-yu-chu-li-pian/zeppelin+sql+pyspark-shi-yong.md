@@ -50,7 +50,7 @@ select * from city
 
 ![](../.gitbook/assets/image%20%2812%29.png)
 
-zeppelin的sql编译器还提供了交互式的操作，可以通过图形界面选择自己需要的K,V：
+zeppelin的sql编译器还提供了交互式的操作，可以通过图形界面选择自己需要的 关键字和值 做统计分析：
 
 ![](../.gitbook/assets/image%20%2819%29.png)
 
