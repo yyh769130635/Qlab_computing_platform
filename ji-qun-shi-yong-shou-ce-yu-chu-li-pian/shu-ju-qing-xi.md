@@ -64,7 +64,7 @@ df.agg(fn.count('id').alias('count'),
 df.withColumn('new_id',fn.monotonically_increasing_id()).show()
 ```
 
-![](../.gitbook/assets/image%20%2832%29.png)
+![](../.gitbook/assets/image%20%2833%29.png)
 
 ## 缺失值
 
@@ -94,7 +94,7 @@ df_miss_no_income = df_miss.select([c for c in df_miss.columns if c!='income'])
 df_miss_no_income.dropna(thresh=3).show()
 ```
 
-![](../.gitbook/assets/image%20%2825%29.png)
+![](../.gitbook/assets/image%20%2826%29.png)
 
 另外处理缺失值的方法是对其做填充。如果数据时离散型布尔值，可以通过添加第三个类型——Missing，将其转换为另一个分类变量；如果数据是数值类型，可以填充任何的平均数、中间数或者其他预定义的值。
 
@@ -155,7 +155,7 @@ fn.when(df_outliers[c].between(bounds[c][0], bounds[c][1]),df_outliers[c] )
 no_outliers.show()
 ```
 
-![](../.gitbook/assets/image%20%2826%29.png)
+![](../.gitbook/assets/image%20%2827%29.png)
 
 此时，离群值可当做缺失值来做处理。
 
@@ -200,7 +200,7 @@ spark_df.createOrReplaceTempView("missing")
 
 通过Zepplin网页可视化的功能可以直观地查看各个属性的缺失率情况
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](../.gitbook/assets/image%20%2822%29.png)
 
 由图可见，有些属性的缺失率过高，有些甚至达到了100%，可以认为这些属性对结果的影响可忽略不计，所以可以设置一个阈值，直接滤除缺失率达到指定阈值的属性
 
