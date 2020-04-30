@@ -48,7 +48,7 @@ df_miss=df.agg(*[ (1-fn.count(c)/(fn.count('*'))).alias(c )
 df_miss.show()
 ```
 
-![](../.gitbook/assets/image%20%2851%29.png)
+![](../.gitbook/assets/image%20%2852%29.png)
 
 ### **4.统一某一列缺失的个数**
 
@@ -131,7 +131,7 @@ sort and orderBy用法和pandas，其中spark默认的是升序排列
 df.sort(df["Fare"], ascengding=True).show()
 ```
 
-### 11.更改列数据类型
+### 11.利用sql更改列数据类型
 
 dataframe数据读进来默认为string，可以利用spark.sql可以做如下类型转换：
 
@@ -149,4 +149,17 @@ df1.show()
 ```
 
 ![](../.gitbook/assets/image%20%2814%29.png)
+
+### 11. spark.read.csv
+
+spark默认读入数据格式为string，对于一些已经处理过格式、打上标签的结构、半机构化数据，可以在读取的时候用spark的解析工具读入，添加这个参数即可`inferSchema=True`
+
+```text
+%pyspark
+data=spark.read.csv("hdfs://10.129.2.155:50090/123/data/311-data/311-service-requests-from-2010-to-present.csv",header=True,inferSchema=True )
+```
+
+![](../.gitbook/assets/image%20%2825%29.png)
+
+上图可以看到，spark支持的数据类型非常多，有float, string, long ,timestamp
 
