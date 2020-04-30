@@ -12,7 +12,7 @@ description: 作者：杨煜涵         时间：2020-4-19
 
 将csv文件读入dataframe
 
-```text
+```python
 df=spark.read.csv("hdfs://10.129.2.155:50090/123/data/train.csv",header=True)
 ```
 
@@ -30,7 +30,7 @@ df.printSchema()
 
 选择dataframe的一列，输出其统计信息，包括最大值、最小值等，需要注意的是，mean 、stddev会受null值的影响。
 
-```text
+```python
 df.describe("Survived").show()
 ```
 
@@ -40,7 +40,7 @@ df.describe("Survived").show()
 
 对整个dataframe的列做数据缺失率统计，如果缺失率过高可以删除整列。
 
-```text
+```python
 import pyspark.sql.functions as fn 
 # 因为spark没有现成的函数，需要自己利用function函数计算
 df_miss=df.agg(*[ (1-fn.count(c)/(fn.count('*'))).alias(c ) 
@@ -68,7 +68,7 @@ df2.show()
 
 对于缺失值的填充，可以借助fillna函数或者 na.fill\(\)函数，可以对整张表，也可以选取一列，填入某个特定值，值的选取可以结合前面的最大值，最小值，均值，众数来选取。
 
-```text
+```python
 df1=df.fillna({"Age": 20})
 df1.show()
 ```
@@ -77,7 +77,7 @@ df1.show()
 
 spark中有许多基本的函数，可以根据数学表达式结合排序求得想要的结果，需要注意的是只能做一列统计，暂时没有这个dataframe的API
 
-```text
+```python
 # spark只能对某一列做统计，选中一列
 df_most=df.select("Age").groupBy("Age").count().orderBy("count",ascending=False) 
 df_most.show()
@@ -89,7 +89,7 @@ df_most.show()
 
 求解最大最小值的方法有许多：可以直接利用自带的describe函数（官方不推荐），也可以构造临时表利用sql语句计算，还可以将dataframe转换成RDD，然后利用数组求解，需要注意的是数据的格式问题。
 
-```text
+```python
 # # Method 1: Use describe()
 # float(df.describe("Age").filter("summary = 'max'").select("Age").collect()[0].asDict()['Age'])
 
@@ -111,7 +111,7 @@ max(df.select("Age").collect())
 
 碰到某些条件需要删选，可以借助filter函数，类似于sql的between 和 where
 
-```text
+```python
 df.filter(df["Age"]>24).show()
 ```
 
@@ -119,7 +119,7 @@ df.filter(df["Age"]>24).show()
 
 想要做一些个性化的统计，利用groupBy和count，这个和pandas库用法一样
 
-```text
+```python
 df.groupBy("Sex").count().show()
 ```
 
@@ -127,7 +127,7 @@ df.groupBy("Sex").count().show()
 
 sort and orderBy用法和pandas，其中spark默认的是升序排列
 
-```text
+```python
 df.sort(df["Fare"], ascengding=True).show()
 ```
 
@@ -135,7 +135,7 @@ df.sort(df["Fare"], ascengding=True).show()
 
 dataframe数据读进来默认为string，可以利用spark.sql可以做如下类型转换：
 
-```text
+```python
 # 更改列数据类型，首先需要对null值填充，不然会报错
 df1=df.fillna({"Age":0})
 # 导入如下数据类型的两个包
@@ -152,9 +152,9 @@ df1.show()
 
 ### 11. spark.read.csv
 
-spark默认读入数据格式为string，对于一些已经处理过格式、打上标签的结构、半机构化数据，可以在读取的时候用spark的解析工具读入，添加这个参数即可`inferSchema=True`
+spark默认读入数据格式为string，对于一些已经处理过格式、打上标签的结构、半机构化数据，可以在读取的时候用spark的解析工具读入，不必麻烦的手动修改数据类型。在`spark.read.csv`中添加这个参数即可`inferSchema=True`
 
-```text
+```python
 %pyspark
 data=spark.read.csv("hdfs://10.129.2.155:50090/123/data/311-data/311-service-requests-from-2010-to-present.csv",header=True,inferSchema=True )
 ```
