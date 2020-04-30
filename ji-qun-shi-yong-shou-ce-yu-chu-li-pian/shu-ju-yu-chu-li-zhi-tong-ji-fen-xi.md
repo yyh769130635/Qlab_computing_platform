@@ -64,7 +64,16 @@ df2=df.agg(*[(fn.count("*")-fn.count(c)).alias(c)
 df2.show()
 ```
 
-### **5.求众数**
+### **5.null值的填充**
+
+对于缺失值的填充，可以借助fillna函数或者 na.fill\(\)函数，可以对整张表，也可以选取一列，填入某个特定值，值的选取可以结合前面的最大值，最小值，均值，众数来选取。
+
+```text
+df1=df.fillna({"Age": 20})
+df1.show()
+```
+
+### **6.求众数**
 
 spark中有许多基本的函数，可以根据数学表达式结合排序求得想要的结果，需要注意的是只能做一列统计，暂时没有这个dataframe的API
 
@@ -76,7 +85,7 @@ df_most.show()
 
 ![](../.gitbook/assets/image%20%286%29.png)
 
-### **6.求最大最小值**
+### **7.求最大最小值**
 
 求解最大最小值的方法有许多：可以直接利用自带的describe函数（官方不推荐），也可以构造临时表利用sql语句计算，还可以将dataframe转换成RDD，然后利用数组求解，需要注意的是数据的格式问题。
 
@@ -98,7 +107,7 @@ df_most.show()
 max(df.select("Age").collect())
 ```
 
-### **7.筛选信息**
+### **8.筛选信息**
 
 碰到某些条件需要删选，可以借助filter函数，类似于sql的between 和 where
 
@@ -106,7 +115,7 @@ max(df.select("Age").collect())
 df.filter(df["Age"]>24).show()
 ```
 
-### **8.groupBy+count**
+### **9.groupBy+count**
 
 想要做一些个性化的统计，利用groupBy和count，这个和pandas库用法一样
 
@@ -114,21 +123,12 @@ df.filter(df["Age"]>24).show()
 df.groupBy("Sex").count().show()
 ```
 
-### **9.sort and orderBy**
+### **10.sort and orderBy**
 
 sort and orderBy用法和pandas，其中spark默认的是升序排列
 
 ```text
 df.sort(df["Fare"], ascengding=True).show()
-```
-
-### **10.null值的填充**
-
-对于缺失值的填充，可以借助fillna函数或者 na.fill\(\)函数，可以对整张表，也可以选取一列，填入某个特定值，值的选取可以结合前面的最大值，最小值，均值，众数来选取。
-
-```text
-df1=df.fillna({"Age": 20})
-df1.show()
 ```
 
 ### 11.更改列数据类型
